@@ -23,4 +23,6 @@ Route::post('register', 'UserController@register');
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('closed', 'DataController@closed');
+        route::put('update','DataController@updateProfile');
+        route::post('imageUpdate','DataController@imageUpdate');
     });

@@ -29,7 +29,9 @@
         public function register(Request $request)
         {
                 $validator = Validator::make($request->all(), [
-                'name' => 'required|string|max:255',
+                'firstName' => 'required|string|max:255',
+                'lastName' => 'string|max:255',
+                'mobile' => 'required|min:10|max:10|unique:users',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
             ]);
@@ -39,7 +41,11 @@
             }
 
             $user = User::create([
-                'name' => $request->get('name'),
+                'firstName' => $request->get('firstName'),
+                'lastName' => $request->get('lastName'),
+                $str = substr($request->input('firstName'), 4),
+                'userId' => $str . rand(10000000,9),
+                'mobile' => $request->get('mobile'),
                 'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
             ]);
