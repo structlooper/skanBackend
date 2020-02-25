@@ -56,7 +56,7 @@ use Illuminate\Support\Facades\Validator;
                 } 
                 elseif($request->input('email') == $user->email ){
                     $user->email = $user->email;
-                    // $user->email = $request->input('email') ?? $user->email;
+                    
                     }
                 if($request->input('mobile') == $user->mobile)
                 {
