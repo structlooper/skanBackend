@@ -6,7 +6,8 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
+  <title>@yield('adminTitle')</title>
+  @yield('adminStyleCss')
   <!-- General CSS Files -->
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Template CSS -->
@@ -31,6 +32,7 @@
     </div>
   </div>
   <!-- General JS Scripts -->
+  @yield('adminJsFile')
   <script src="assets/js/app.min.js"></script>
   <!-- JS Libraies -->
   <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>

@@ -1,4 +1,8 @@
 @extends('admin.layouts.sideBar')
+
+@section('adminTitle')
+    Admin | Dashboard
+@endsection
 @section('adminSide')
     
 
