@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Helper;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -13,6 +14,7 @@ class adminController extends Controller
         return view('admin.profile');
     }
     public function timeline(){
+        Helper::addToLog('Organisation details added');
         return view('admin.adminTimeline');
     }
     public function widget_chart(){
