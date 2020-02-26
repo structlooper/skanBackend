@@ -5,7 +5,13 @@ namespace App\Http\Controllers;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 
-class adminController extends Controller
+/**
+ * functions for the view usrls for all auth routes
+ * created by structlooper
+ * 25/02/2020
+ */
+
+ class AdminController extends Controller
 {
     public function index(){
         return view('admin.adminDashboard');

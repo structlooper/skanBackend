@@ -18,13 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/**
+ * Auth verified urls
+ * created by structlooper
+ * 25/02/2020
+ */
 Route::group(['middleware' => ['auth','is_admin']], function (){
 
-    route::get('adminDashboard','adminController@index');
-    route::get('adminProifile','adminController@adminProifile');
-    route::get('timeline','adminController@timeline');
-    route::get('widget_chart','adminController@widget_chart');
-    route::get('widget_data','adminController@widget_data');
-    route::get('chat','adminController@chat');
+    route::get('adminDashboard','AdminController@index');
+    route::get('adminProifile','AdminController@adminProifile');
+    route::get('timeline','AdminController@timeline');
+    route::get('widget_chart','AdminController@widget_chart');
+    route::get('widget_data','AdminController@widget_data');
+    route::get('chat','AdminController@chat');
 
 });

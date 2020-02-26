@@ -23,29 +23,34 @@ use Illuminate\Support\Facades\Validator;
                 return response()->json(compact('data'),200);
             }
             
+            /**
+             * upadate function for user profile
+             * via api method 
+             * by structlooper
+             */
             public function updateProfile(request $request)
             {
-
+                /**
+                 * custom validation for email
+                 * by structlooper
+                 */
                 $validatorPhone = Validator::make($request->all(), [
                     
                     'mobile' => 'min:10|max:10|unique:users',
                    
                     
                 ]);
+                /**
+                 * custom validation for mobile
+                 * by structlooper
+                 */
                 $validatorEmail = Validator::make($request->all(), [
                     
                     
                     'email' => 'string|email|max:255|unique:users',
                     
                 ]);
-                // $messages = array(
-                //   'min' => 'Phone number must be 10 char',
-                //   'max' => 'phone number must be 10 char',
-                //   'string' => 'char must be string not integer',
-                //   'email' => 'the input must be of email formate',
-                //   'unique' => "The entered record is already present in database",
-                // );
-    
+                
                 $user = Auth::user();
                 
                 if ($request->input('email') != $user->email) {

@@ -16,10 +16,24 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('register', 'UserController@register');
-    Route::post('login', 'UserController@authenticate');
-    Route::get('open', 'DataController@open');
 
+
+/**
+ * These are the not verified routes
+ * used without middleware request
+ * created by structlooper
+ * 25/02/20
+ */
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@authenticate');
+Route::get('open', 'DataController@open');
+
+
+    /**
+     * These are Jwt verified urls 
+     * Created by Structlooper
+     * 25/02/20
+     */
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('closed', 'DataController@closed');

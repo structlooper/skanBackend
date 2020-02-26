@@ -17,7 +17,6 @@ class Helper {
         $log = [];
         $log['subject'] = $subject;
         $log['url'] = Request::fullUrl();
-        // $log['url'] = 'www.sample.com';
         $log['method'] = Request::method();
         $log['ip'] = Request::ip();
         $log['agent'] = Request::header('user-agent');
