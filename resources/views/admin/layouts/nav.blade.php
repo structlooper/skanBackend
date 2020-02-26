@@ -146,13 +146,10 @@
               </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
                 Settings
               </a>
-              {{-- <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                Logout
-              </a> --}}
+              
               <div class="dropdown-divider"></div>
                 <a class="dropdown-item has-icon text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  <i class="fas fa-sign-out-alt"></i> {{ Auth::user()->is_admin }} <span class="caret"></span>
+                  <i class="fas fa-sign-out-alt"></i> {{ Auth::user()->firstName }} <span class="caret"></span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

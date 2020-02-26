@@ -11,6 +11,11 @@
   
       <!-- Main Content -->
       <div class="main-content">
+        @if (session('status'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{session('status')}}
+                </div>
+        @endif
         <section class="section">
           <div class="row ">
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
