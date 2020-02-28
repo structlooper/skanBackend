@@ -29,9 +29,23 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     route::get('adminDashboard','AdminController@index');
     route::get('adminProifile','AdminController@adminProifile');
     route::get('timeline','AdminController@timeline');
-    route::get('widget_chart','AdminController@widget_chart');
-    route::get('widget_data','AdminController@widget_data');
-    // route::get('chat','AdminController@chat');
     route::get('changePassword','AdminController@resetPass');
     route::put('changing','AdminController@changing');
+    route::get('category',"ValuesController@category");
+    /**
+     * store data in database after collection from Values modal
+     * by structlooper
+     * 27/02/2020
+     */
+    route::post('addingValues',"ValuesController@addingValues");
+
+    /**
+     * specific entery delting after storing
+     * by structlooper
+     * 
+     */
+    route::get('delete/{id}','ValuesController@deleting');
+    route::get('data/{id}','ValuesController@showData');
+    route::post('dataUpdate/{id}','ValuesController@updateValues');
+    
 });

@@ -34,8 +34,8 @@ Route::get('open', 'DataController@open');
      * Created by Structlooper
      * 25/02/20
      */
+    Route::get('user', 'UserController@getAuthenticatedUser');
     Route::group(['middleware' => ['jwt.verify']], function() {
-        Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('closed', 'DataController@closed');
         route::put('update','DataController@updateProfile');
         route::post('imageUpdate','DataController@imageUpdate');

@@ -16,9 +16,9 @@
         <li class="menu-header">Pages</li>
           <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                data-feather="briefcase"></i><span>Widgets</span></a>
+                data-feather="briefcase"></i><span>Working Pages</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="widget_chart">Chart Widgets</a></li>
+              <li><a class="nav-link" href="category">Category</a></li>
               <li><a class="nav-link" href="widget_data">Data Widgets</a></li>
             </ul>
           </li>
@@ -26,11 +26,8 @@
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="user-check"></i><span>Auth</span></a>
           <ul class="dropdown-menu">
-            {{-- <li><a href="auth-login.html">Login</a></li> --}}
             <li><a href="auth-register.html">Register New Users</a></li>
-            {{-- <li><a href="auth-forgot-password.html">Forgot Password</a></li> --}}
             <li><a href="changePassword">Change Password</a></li>
-            {{-- <li><a href="subscribe.html">Subscribe</a></li> --}}
           </ul>
         </li>
         

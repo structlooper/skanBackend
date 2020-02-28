@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Validator;
     }
 
     /**
-     * Reset Password by logedin user
+     * Change Password by loged in user/Admin
      * by structlooper
      * 26/02/2020
      */
@@ -53,9 +53,7 @@ use Illuminate\Support\Facades\Validator;
             'required' => 'The :attribute field is required.'
         ];
         $this->validate($request, $rules, $customMessages);
-        // if($validator->fails()){
-        //     return response()->json($validatorEmail->errors()->toJson(), 400);
-        // }
+        
         $user = Auth::User();
         $oldPassword = $user->password;
         $userOldPass = $request->input('oldPassword');
