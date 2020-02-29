@@ -121,10 +121,10 @@ aria-hidden="true">
       Are you sure want to delete this record?
     </div>
     <div class="modal-footer bg-whitesmoke br">
-      {{-- <button type="button" class="btn btn-primary">Delete</button> --}}
+      
       <a href="delete" class="btn btn-Danger" id="delete12">Yes</a>
-      {{-- <button type="button"  >Yes</button> --}}
-      <button type="close" class="btn btn-secondary " id='close' >Close</button>
+      
+      
     </div>
   </div>
 </div>
