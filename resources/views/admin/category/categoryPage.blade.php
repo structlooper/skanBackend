@@ -100,7 +100,7 @@
                               <a href="#" data-id='{{$item->id}}' class="btn btn-warning Del viewData"><i class="
                                 far fa-edit" >edit</i></a>
                             </td>
-                          <td><a href="#"  class="btn btn-danger" ><i class="material-icons deleteModal">delete</i></a></td>
+                          <td><a href="#" id="comDel" dele-id='{{$item->id}}'  class="btn btn-danger" ><i class="material-icons deleteModal">delete</i></a></td>
                           </tr>
                           @endforeach
                         </tbody>
@@ -165,18 +165,31 @@
                     $('#lot').attr('action', act + '/' + data.id)
                     $('#updationModal').modal('show');
 
-                    let dct = $('#delete12').attr('herf')
                     
-                    $('#delete12').attr('herf', dct + '/' + data.id )
                   },
                   error : function() {
                       alert("Not Found Something is wrong");
                   }
                 });
               });
+      $('#comDel').click(function(e){
+        e.preventDefault()
+        let id = $(this).attr('dele-id')
+        $.ajax({
+                    url: "{{ url('data') }}" + '/' + id,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                      let dct = $('#delete12').attr('href')
+                    
+                    $('#delete12').attr('href', dct + '/' + data.id )
+                    // $('#basicModal').modal('show')
+                    }
+        })
+      })
         
                   $('.modal').on('click' , function() { 
-                    $('.modal').modal('hide')
+                    $('#close').modal('hide')
                   });
           
 </script>

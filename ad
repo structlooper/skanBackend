@@ -1,0 +1,47 @@
+[33mcommit f0da64dbeda61ce00c3ca10ccc1f16efa1c2b20a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Fri Feb 28 18:57:41 2020 +0530
+
+    values are added
+
+[33mcommit adebaa1728ee9f5d1ce2b996c4d95ee5455bd3a1[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Wed Feb 26 14:57:17 2020 +0530
+
+    change password added
+
+[33mcommit 8e58b824ffc58314e38ef29a13688427eac53b59[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Wed Feb 26 10:03:47 2020 +0530
+
+    comments added
+
+[33mcommit a6e06f359e2ffb47476e1adc9821cd1a5624d906[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Tue Feb 25 18:37:22 2020 +0530
+
+    log helper generated
+
+[33mcommit b5bcf7cdcf2369c727257fa0f6ee1fc64f8ae039[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Tue Feb 25 17:08:44 2020 +0530
+
+    admin dashboard added
+
+[33mcommit 2ae5b38759f5fc60901c3efae41084b9a07fa295[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Tue Feb 25 12:36:42 2020 +0530
+
+    admin configration added with dashboard
+
+[33mcommit 7c9c9257108c0eb0f55a9d8098ae178a45dc73b2[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Mon Feb 24 18:26:49 2020 +0530
+
+    api_modified
+
+[33mcommit 055251311ac2472b101e5569a48c627c8c87e17c[m
+Author: Deepak Kumar <structlooper@gmail.com>
+Date:   Fri Feb 21 17:03:47 2020 +0530
+
+    jwt_api
