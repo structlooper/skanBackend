@@ -86,18 +86,13 @@
          <div class="form-group">
            <div class="input-group">
             
-             <button type="submit" value="primaryID" id="updationModal" class="btn btn-primary m-t-15 insertValue">Submit</button>
+             <button type="submit" value="primaryID" id="updationModal" class="btn btn-warning m-t-15 insertValue">Update</button>
            </div>
          </div>
        
        </form>
      </div>
-     {{-- <div class="modal-body">
-        <ul class="list-group">
-		  <li class="list-group-item">Author: <span class="text-danger" id="categoryID"></span></li>
-		  <li class="list-group-item">Details: <span class="text-danger" id="sourceID"></span></li>
-		</ul>
-    </div> --}}
+     
    </div>
  </div>
 </div>

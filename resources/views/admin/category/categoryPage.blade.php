@@ -29,6 +29,7 @@
           <div class="section-body">
            
             <div class="row">
+              <div class="col-sm-2"></div>
                 <div class="card">
               @if ($errors->any())
                   <div class="alert alert-danger">
@@ -100,7 +101,9 @@
                               <a href="#" data-id='{{$item->id}}' class="btn btn-warning Del viewData"><i class="
                                 far fa-edit" >edit</i></a>
                             </td>
-                          <td><a href="#" id="comDel" dele-id='{{$item->id}}'  class="btn btn-danger" ><i class="material-icons deleteModal">delete</i></a></td>
+                          <td>
+                            <a href="delete" dele-id='{{$item->id}}'   class="btn btn-danger comDel" ><i class="material-icons deleteModal">delete</i>
+                          </td>
                           </tr>
                           @endforeach
                         </tbody>
@@ -172,7 +175,7 @@
                   }
                 });
               });
-      $('#comDel').click(function(e){
+      $('.comDel').click(function(e){
         e.preventDefault()
         let id = $(this).attr('dele-id')
         $.ajax({
@@ -180,17 +183,27 @@
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
-                      let dct = $('#delete12').attr('href')
+                    console.log(data)
+                    let dct = $('.comDel').attr('href')
                     
                     $('#delete12').attr('href', dct + '/' + data.id )
-                    // $('#basicModal').modal('show')
+                    $('#basicModal').modal('show')
+                    // window.location.reload()
                     }
         })
       })
-        
-                  $('.modal').on('click' , function() { 
-                    $('#close').modal('hide')
+     
+
+      $(function () {
+        setTimeout(function () {
+           if ($(".alert").is(":visible")){
+                //you may add animate.css class for fancy fadeout
+               $(".alert").fadeOut("fast");
+                            }
+                        }, 3000)
+
                   });
           
+        
 </script>
  @endsection
