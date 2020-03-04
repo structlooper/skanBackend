@@ -51,54 +51,41 @@
                   </div>
               @endif
                   <div class="card-header" >
-                    <h4>Values Table</h4>
+                    <h4>Slide uploaded details</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
-                      <a href="#" class="btn btn-lg btn-primary ml-4 showModal"  style="float: right;">Add Values</a>
-                      {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Modal
-                        With Form</button> --}}
+                      {{-- <a href="#" class="btn btn-lg btn-primary ml-4 showModal"  style="float: right;">Add Values</a> --}}
                       <table class="table table-striped" id="table-2">
                         <thead>
                           <tr>
-                            <th class="text-center pt-3">
-                              <div class="custom-checkbox custom-checkbox-table custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
-                                  class="custom-control-input" id="checkbox-all">
-                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </th>
                             <th>&&</th>
-                            <th>Source</th>
-                            <th>Category</th>
-                            <th>added Date</th>
+                            <th>Heading</th>
+                            <th>Content</th>
+                            <th>Image</th>
                             <th>Action</th>
                             <th></th>
                             
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($dataDb as $key=> $item)
+                          @foreach ($data as $key=> $item)
                               
                           <tr>
-                            <td class="text-center pt-2">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-1">
-                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
                             <td>{{$key+1}} </td >
                             <td class="align-middle">
-                              {{$item->source}}
+                              {{$item->heading}}
                               </div>
                             </td>
                             <td>
-                              {{$item->category}}
+                              {{$item->desc}}
                             </td>
-                            <td>{{date('d M, Y', strtotime($item->created_at))}}</td>
                             <td>
-                              <a href="#" data-id='{{$item->id}}' class="btn btn-warning Del viewData"><i class="
+                            {{-- <td>{{date('d M, Y', strtotime($item->created_at))}}</td> --}}
+                            <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/bannerImages/' . $item->image) }}"  style=" height: 200px;">                            
+                          </td>
+                            <td>
+                              <a href="updatePage/{{$item->id}}"  class="btn btn-warning"><i class="
                                 far fa-edit" >edit</i></a>
                             </td>
                           <td>
@@ -143,7 +130,7 @@
     <!-- Custom JS File -->
     
 <script>
-        $('.showModal').click(function(e){
+      $('.showModal').click(function(e){
                 e.preventDefault()
                 $('#exampleModal').modal('show')
               })
@@ -152,29 +139,7 @@
                 $('#basicModal').modal('show')
               })
 
-      $('.viewData').click(function(e) {
-        e.preventDefault()
-        let id=$(this).attr('data-id')
-        $.ajax({
-                    url: "{{ url('data') }}" + '/' + id,
-                    type: "GET",
-                    dataType: "JSON",
-                  success: function(data) {
-                    $('#sourceID').val(data.source); 
-                    $('#categoryID').val(data.category);
-                    $('#primaryID').text(data.id);
-                    
-                    let act = $('#lot').attr('action')
-                    $('#lot').attr('action', act + '/' + data.id)
-                    $('#updationModal').modal('show');
-
-                    
-                  },
-                  error : function() {
-                      alert("Not Found Something is wrong");
-                  }
-                });
-              });
+     
       $('.comDel').click(function(e){
         e.preventDefault()
         let id = $(this).attr('dele-id')

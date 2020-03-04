@@ -47,5 +47,15 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     route::get('delete/{id}','ValuesController@deleting');
     route::get('data/{id}','ValuesController@showData');
     route::post('dataUpdate/{id}','ValuesController@updateValues');
+
+    /**
+     * Data Manuplation for Bannner
+     * by structlooper
+     */
+    Route::get('insertBanner','BannerDataController@view');
+    Route::post('insertion','BannerDataController@store')->name('InsertionBannnerData');
+    Route::get('showAll','BannerDataController@showAll');
+    Route::get('updatePage/{id}','BannerDataController@updateView')->name('updateView');
+    Route::post('updationData/{id}','BannerDataController@updationData')->name('updationData');
     
 });

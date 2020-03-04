@@ -28,6 +28,7 @@ Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 Route::get('open', 'DataController@open');
 
+Route::get('slideData','BannerDataController@show');
 
     /**
      * These are Jwt verified urls 
