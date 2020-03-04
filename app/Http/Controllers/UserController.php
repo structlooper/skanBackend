@@ -36,23 +36,35 @@
                 'password' => 'required|string|min:6|confirmed',
             ]);
 
-            if($validator->fails()){
-                    return response()->json($validator->errors()->toJson(), 400);
-            }
+            if ($validator->fails()){
+                $results = [
+                'success' => false,
+                'data' => 'Validation Error',
+                'msg' => $validator->errors()->first(),
+                // 'Status' => 404,
+                ];
+                }
+                else{
+                        $user = User::create([
+                                'firstName' => $request->get('firstName'),
+                                'lastName' => $request->get('lastName'),
+                                $str = substr($request->input('firstName'), -4),
+                                'userId' => $str . rand(10000000,9),
+                                'mobile' => $request->get('mobile'),
+                                'email' => $request->get('email'),
+                                'password' => Hash::make($request->get('password')),
+                        ]);
+                        $data = [
+                                'success' => True,
+                                'token' => JWTAuth::fromUser($user),
+                                'msg' => 'Registor successfully',
+                        ];
 
-            $user = User::create([
-                'firstName' => $request->get('firstName'),
-                'lastName' => $request->get('lastName'),
-                $str = substr($request->input('firstName'), 4),
-                'userId' => $str . rand(10000000,9),
-                'mobile' => $request->get('mobile'),
-                'email' => $request->get('email'),
-                'password' => Hash::make($request->get('password')),
-            ]);
+                        $results =  response()->json(compact('user','data'),201);
+                }
+                
+                return $results;
 
-            $token = JWTAuth::fromUser($user);
-
-            return response()->json(compact('user','token'),201);
         }
 
         public function getAuthenticatedUser()

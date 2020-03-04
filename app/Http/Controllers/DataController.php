@@ -84,6 +84,7 @@ use Illuminate\Support\Facades\Validator;
 
                 return response()->json(compact('message','user'),200);
             }
+        
             public function imageUpdate(request $request)
             {
                 $user = Auth::user();

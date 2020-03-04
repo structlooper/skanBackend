@@ -116,7 +116,7 @@
             </div>
            
           </div>
-          {{-- "delete/{{$item->id}}" --}}
+        
   </div>
   
 {{-- 
@@ -200,7 +200,7 @@
                 //you may add animate.css class for fancy fadeout
                $(".alert").fadeOut("fast");
                             }
-                        }, 3000)
+                        }, 2000)
 
                   });
           
