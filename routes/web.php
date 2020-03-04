@@ -54,8 +54,9 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
      */
     Route::get('insertBanner','BannerDataController@view');
     Route::post('insertion','BannerDataController@store')->name('InsertionBannnerData');
-    Route::get('showAll','BannerDataController@showAll');
-    Route::get('updatePage/{id}','BannerDataController@updateView')->name('updateView');
-    Route::post('updationData/{id}','BannerDataController@updationData')->name('updationData');
+    Route::get('showAll','BannerDataController@showAll')->name('showAll');
+    Route::get('showAll/{id}','BannerDataController@updateView');
+    Route::put('showAll/updationData/{id}','BannerDataController@updationData');
+    Route::get('deleteSlide/{id}','BannerDataController@delete');
     
 });

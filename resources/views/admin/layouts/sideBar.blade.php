@@ -26,8 +26,16 @@
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="user-check"></i><span>Auth</span></a>
           <ul class="dropdown-menu">
-            <li><a href="auth-register.html">Register New Users</a></li>
+            <li><a href="#">Register New Users</a></li>
             <li><a href="changePassword">Change Password</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i
+              data-feather="user-check"></i><span>Slide Data</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="insertBanner">Insert New Data</a></li>
+            <li><a href="showAll">View Slide Data</a></li>
           </ul>
         </li>
         

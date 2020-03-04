@@ -6,15 +6,15 @@
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../assets/css/app.min.css">
+  <link rel="stylesheet" href="../assets/bundles/datatables/datatables.min.css">
+  <link rel="stylesheet" href="../assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
     
 @endsection
 
@@ -85,11 +85,11 @@
                             <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/bannerImages/' . $item->image) }}"  style=" height: 200px;">                            
                           </td>
                             <td>
-                              <a href="updatePage/{{$item->id}}"  class="btn btn-warning"><i class="
+                              <a href="{{ route("showAll") }}/{{$item->id}}"  class="btn btn-warning"><i class="
                                 far fa-edit" >edit</i></a>
                             </td>
                           <td>
-                            <a href="delete" dele-id='{{$item->id}}'   class="btn btn-danger comDel" ><i class="material-icons deleteModal">delete</i>
+                            <a href="deleteSlide/{{$item->id}}" dele-id=''   class="btn btn-danger  deleteModal" ><i class="material-icons deleteModal">delete</i>
                           </td>
                           </tr>
                           @endforeach
@@ -106,11 +106,29 @@
         
   </div>
   
-{{-- 
-  This file containing the modal of adding values in the table via modal
-  
-  --}}
-  @include('admin.modals.addingValues')
+{{-- Delete Conformation model --}}
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Are you sure want to delete this record?
+    </div>
+    <div class="modal-footer bg-whitesmoke br">
+      
+      <a href="delete" class="btn btn-Danger" id="delete12">Yes</a>
+      
+      
+    </div>
+  </div>
+</div>
+</div>
 
 
    
@@ -118,45 +136,19 @@
     
         @section('adminJsFile')
     <!-- General JS Scripts -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="../assets/js/app.min.js"></script>
     <!-- JS Libraies -->
-    <script src="assets/bundles/datatables/datatables.min.js"></script>
-    <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/bundles/datatables/datatables.min.js"></script>
+    <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <!-- Page Specific JS File -->
-    <script src="assets/js/page/datatables.js"></script>
+    <script src="../assets/js/page/datatables.js"></script>
     <!-- Template JS File -->
-    <script src="assets/js/scripts.js"></script>
+    <script src="../assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     
 <script>
-      $('.showModal').click(function(e){
-                e.preventDefault()
-                $('#exampleModal').modal('show')
-              })
-        $('.deleteModal').click(function(e){
-                e.preventDefault()
-                $('#basicModal').modal('show')
-              })
-
-     
-      $('.comDel').click(function(e){
-        e.preventDefault()
-        let id = $(this).attr('dele-id')
-        $.ajax({
-                    url: "{{ url('data') }}" + '/' + id,
-                    type: "GET",
-                    dataType: "JSON",
-                    success: function(data) {
-                    console.log(data)
-                    let dct = $('.comDel').attr('href')
-                    
-                    $('#delete12').attr('href', dct + '/' + data.id )
-                    $('#basicModal').modal('show')
-                    // window.location.reload()
-                    }
-        })
-      })
+  
      
 
       $(function () {

@@ -59,7 +59,7 @@ class BannerDataController extends Controller
 
     public function updateView(request $request, $id)
     {
-        $data = BannerDatas::find($id);
+        $data = BannerDatas::findOrFail($id);
         return view('admin.banner.updateSpecfic')->with('data',$data);
     }
     public function updationData(request $request,$id)
@@ -76,18 +76,24 @@ class BannerDataController extends Controller
         ];
         $this->validate($request, $rules, $msg);
         $data = BannerDatas::find($id);
-        $bannerData->heading = $request->input('heading') ;
-        $bannerData->desc = $request->input('desc') ;
+        $data->heading = $request->input('heading');
+        $data->desc = $request->input('desc');
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); //geting extension from image Extension
             $filename =  uniqid() . '.' . $extension;
             $file->move('uploades/bannerImages/', $filename);
-            $bannerData->image = $filename;
-            
-        }
-        $bannerData->update();
+            $data->image = $filename;
 
+        
+        }
+        $data->update();
         return redirect('showAll')->with('status', 'Data Updated successfuly');
+    }
+    public function delete($id)
+    {
+        $data = BannerDatas::find($id);
+        $data->delete();
+        return redirect()->back()->with('status','Data deleted Successfully');
     }
 }
