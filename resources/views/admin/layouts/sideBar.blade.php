@@ -38,6 +38,14 @@
             <li><a href="showAll">View Slide Data</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i
+              data-feather="user-check"></i><span>About Data</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="aboutData">View About Data</a></li>
+            {{-- <li><a href="showAll">View Slide Data</a></li> --}}
+          </ul>
+        </li>
         
         
       </ul>

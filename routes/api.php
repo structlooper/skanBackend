@@ -30,6 +30,8 @@ Route::get('open', 'DataController@open');
 
 Route::get('slideData','BannerDataController@show');
 
+Route::get('aboutData','AboutController@aboutData');
+
     /**
      * These are Jwt verified urls 
      * Created by Structlooper

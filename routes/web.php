@@ -58,5 +58,11 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     Route::get('showAll/{id}','BannerDataController@updateView');
     Route::put('showAll/updationData/{id}','BannerDataController@updationData');
     Route::get('deleteSlide/{id}','BannerDataController@delete');
-    
+
+    /**
+     * about urls MOD
+     */
+    Route::get('aboutData','AboutController@showData');
+    Route::get('updateAboutData/{id}','AboutController@updateAboutData')->name('updateAboutData');
+    Route::put('updateAboutData/updationData/{id}','AboutController@updationData');
 });
