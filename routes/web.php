@@ -60,9 +60,15 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     Route::get('deleteSlide/{id}','BannerDataController@delete');
 
     /**
-     * about urls MOD
+     * about urls DOM
      */
     Route::get('aboutData','AboutController@showData');
     Route::get('updateAboutData/{id}','AboutController@updateAboutData')->name('updateAboutData');
     Route::put('updateAboutData/updationData/{id}','AboutController@updationData');
+
+    /**
+     * Terms and Condition DOM
+     */
+    Route::get('termsAndCondition','TermsAndConditionController@view');
+    Route::put('updationTermsData/{id}','TermsAndConditionController@updationTermsData');
 });

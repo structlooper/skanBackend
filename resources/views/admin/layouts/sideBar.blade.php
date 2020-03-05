@@ -19,7 +19,7 @@
                 data-feather="briefcase"></i><span>Working Pages</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="category">Category</a></li>
-              <li><a class="nav-link" href="widget_data">Data Widgets</a></li>
+              <li><a class="nav-link" href="termsAndCondition">Terms And Condition</a></li>
             </ul>
           </li>
         <li class="dropdown">

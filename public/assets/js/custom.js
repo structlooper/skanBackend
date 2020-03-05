@@ -6,4 +6,16 @@
  */
 
 "use strict";
-
+if (jQuery().summernote) {
+    
+    $(".summernote").summernote({
+      dialogsInBody: true,
+      maxWidth: 600,
+      minHeight: 200,
+      toolbar: [
+        ["style", ["bold", "italic", "underline", "clear"]],
+        ["font", ["strikethrough"]],
+        ["para", ["paragraph"]]
+      ]
+    });
+  }

@@ -28,9 +28,15 @@ Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 Route::get('open', 'DataController@open');
 
+/**
+ * DOM api URLS
+ * by structlooper
+ */
 Route::get('slideData','BannerDataController@show');
 
 Route::get('aboutData','AboutController@aboutData');
+
+Route::get('TermsAndCondition','TermsAndConditionController@showTerms');
 
     /**
      * These are Jwt verified urls 
