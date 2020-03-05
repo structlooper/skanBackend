@@ -20,6 +20,7 @@
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="category">Category</a></li>
               <li><a class="nav-link" href="termsAndCondition">Terms And Condition</a></li>
+              <li><a class="nav-link" href="privacyPolicy">Privacy Policy</a></li>
             </ul>
           </li>
         <li class="dropdown">

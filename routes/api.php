@@ -38,6 +38,8 @@ Route::get('aboutData','AboutController@aboutData');
 
 Route::get('TermsAndCondition','TermsAndConditionController@showTerms');
 
+Route::get('privacyPolicy','privacyPolicyController@showPrivate');
+
     /**
      * These are Jwt verified urls 
      * Created by Structlooper

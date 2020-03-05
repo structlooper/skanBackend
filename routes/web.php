@@ -71,4 +71,10 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
      */
     Route::get('termsAndCondition','TermsAndConditionController@view');
     Route::put('updationTermsData/{id}','TermsAndConditionController@updationTermsData');
+   
+    /**
+     * privacy Policy DOM
+     */
+    Route::get('privacyPolicy','privacyPolicyController@view');
+    Route::put('updationPrivacyPolicy/{id}','privacyPolicyController@updationPrivacyData');
 });
