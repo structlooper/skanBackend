@@ -14,16 +14,27 @@
         public function authenticate(Request $request)
         {
             $credentials = $request->only('email', 'password');
-
+            $status = True;
+                // Session::put('loginAceess' , '1');
+                // Cookie::queue('email', '1231231', 333);
             try {
                 if (! $token = JWTAuth::attempt($credentials)) {
-                    return response()->json(['error' => 'invalid_credentials'], 400);
+                        $data = [ 'wrong' =>"invalid_credentials",
+                        'sol' => 'try agin with correct credentials',
+                        'status' => false
+                ];
+                    return response()->json($data, 400);
                 }
             } catch (JWTException $e) {
-                return response()->json(['error' => 'could_not_create_token'], 500);
+                    $data = ['wrong' => 'Something is wrong',  
+                                'error' => 'Internal server error',
+                                'status' => 'token is not careated try agin after some time',
+                                'status' => false
+                        ];
+                return response()->json($data, 500);
             }
 
-            return response()->json(compact('token'));
+            return response()->json(compact('token','status'));
         }
 
         public function register(Request $request)
@@ -41,7 +52,6 @@
                 'success' => false,
                 'data' => 'Validation Error',
                 'msg' => $validator->errors()->first(),
-                // 'Status' => 404,
                 ];
                 }
                 else{
@@ -67,6 +77,29 @@
 
         }
 
+        // /**
+        //  * Method used to login
+        //  * check
+        //  */
+        // public function login(Request $request){
+
+        //         if($request->isMethod('post')){
+        
+        //             $data = $request->input();
+        //             if(Auth::attempt(['email'=>$data['email'] , 'password' => $data['password'] ,  'is_admin' => '1'])){
+        //                 Session::put('loginAceess' , '1');
+        //                 Cookie::queue('email', '1231231', 333);
+        //                 return redirect('/dashboard');
+        
+        //             }
+        //             else{
+        //                 $errors = new MessageBag(['message' => ['Email and password is invalid.']]);
+        //                 return Redirect::back()->withErrors($errors)->withInput(Input::except('password'));
+        //             }
+        //         }
+        
+        //         return redirect('/');
+        //     }
         public function getAuthenticatedUser()
             {
                     try {
