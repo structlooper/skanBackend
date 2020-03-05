@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <div class="loader"></div>
     @yield('adminBody')
 
 

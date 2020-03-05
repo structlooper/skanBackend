@@ -17,6 +17,8 @@
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
 
 @endsection
+@section('adminSide')
+
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
           <div class="navbar-bg"></div>
@@ -95,7 +97,8 @@
               </div>
             
       </div>
-        
+      
+@endsection     
     
 @section('adminJsFile')
    <!-- General JS Scripts -->

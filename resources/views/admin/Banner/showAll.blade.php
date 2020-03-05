@@ -17,8 +17,7 @@
   <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
     
 @endsection
-
-  {{-- <div class="loader"></div> --}}
+@section('adminSide')
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
@@ -105,7 +104,7 @@
           </div>
         
   </div>
-  
+  @endsection
 {{-- Delete Conformation model --}}
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">

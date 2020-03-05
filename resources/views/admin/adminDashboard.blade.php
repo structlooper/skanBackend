@@ -4,12 +4,7 @@
     Admin | Dashboard
 @endsection
 @section('adminSide')
-    
-
-  <div class="loader"></div>
-  
-  
-      <!-- Main Content -->
+          <!-- Main Content -->
       <div class="main-content">
         @if (session('status'))
                 <div class="alert alert-success alert-dismissible" role="alert">

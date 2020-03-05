@@ -73,7 +73,6 @@
                               <input type="submit" class="btn btn-warning btn-lg" >
                               </div>
                     </form>
-
                     @endforeach
                     </div>
                   </div>

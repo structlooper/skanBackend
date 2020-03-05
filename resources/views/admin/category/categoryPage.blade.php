@@ -18,7 +18,7 @@
     
 @endsection
 
-  {{-- <div class="loader"></div> --}}
+@section('adminSide')
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
@@ -118,7 +118,7 @@
           </div>
         
   </div>
-  
+@endsection
 {{-- 
   This file containing the modal of adding values in the table via modal
   

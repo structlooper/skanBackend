@@ -17,9 +17,8 @@
   <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
     
 @endsection
-
-  {{-- <div class="loader"></div> --}}
-  <div id="app">
+@section('adminSide')
+<div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
       
@@ -30,28 +29,28 @@
            
             <div class="row">
               <div class="col-sm-2"></div>
-                <div class="card">
-              @if ($errors->any())
-                  <div class="alert alert-danger">
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                  </div>
-              @endif
-              @if (session('status'))
-                  <div class="alert alert-success alert-dismissible" role="alert">
-                      {{session('status')}}
-                  </div>
-              @endif
-              @if (session('error'))
-                  <div class="alert alert-danger alert-dismissible" role="alert">
-                      {{session('error')}}
-                  </div>
-              @endif
-                  <div class="card-header" >
-                    <h4>About uploaded details</h4>
+              <div class="card">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+                @endif
+                @if (session('status'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  {{session('status')}}
+                </div>
+                @endif
+                @if (session('error'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  {{session('error')}}
+                </div>
+                @endif
+                <div class="card-header" >
+                  <h4>About uploaded details</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -70,24 +69,24 @@
                         </thead>
                         <tbody>
                           @foreach ($data as $key=> $item)
-                              
+                          
                           <tr>
                             <td>{{$key+1}} </td >
-                            <td class="align-middle">
-                              {{$item->heading}}
+                              <td class="align-middle">
+                                {{$item->heading}}
                               </div>
                             </td>
                             <td>
                               {{$item->desc}}
                             </td>
                             <td>
-                            {{-- <td>{{date('d M, Y', strtotime($item->created_at))}}</td> --}}
-                            <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/AboutSideImage/' . $item->image) }}"  style=" height: 200px;">                            
-                          </td>
+                              {{-- <td>{{date('d M, Y', strtotime($item->created_at))}}</td> --}}
+                              <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/AboutSideImage/' . $item->image) }}"  style=" height: 200px;">                            
+                            </td>
                             <td>
                               <a href="updateAboutData/{{$item->id}}"  class="btn btn-warning"><i class="
                                 far fa-edit" >edit</i></a>
-                            </td>
+                              </td>
                           </tr>
                           @endforeach
                         </tbody>
@@ -98,11 +97,11 @@
               </section>
               </div>
             </div>
-           
+            
           </div>
-        
-  </div>
-  
+          
+        </div>
+@endsection
 {{-- Delete Conformation model --}}
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
@@ -126,12 +125,7 @@ aria-hidden="true">
   </div>
 </div>
 </div>
-
-
-   
-        
-    
-        @section('adminJsFile')
+@section('adminJsFile')
     <!-- General JS Scripts -->
     <script src="../assets/js/app.min.js"></script>
     <!-- JS Libraies -->
@@ -144,20 +138,15 @@ aria-hidden="true">
     <script src="../assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     
-<script>
-  
-     
+    <script>
+          $(function () {
+            setTimeout(function () {
+              if ($(".alert").is(":visible")){
+                    //you may add animate.css class for fancy fadeout
+                  $(".alert").fadeOut("fast");
+                                }
+                            }, 2000)
 
-      $(function () {
-        setTimeout(function () {
-           if ($(".alert").is(":visible")){
-                //you may add animate.css class for fancy fadeout
-               $(".alert").fadeOut("fast");
-                            }
-                        }, 2000)
-
-                  });
-          
-        
-</script>
+                      });
+    </script>
  @endsection
