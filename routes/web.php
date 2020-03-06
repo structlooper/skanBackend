@@ -40,7 +40,9 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     Route::get('showAllUsers','adminController@showAllUser');
     Route::get('newAdmin','adminController@registrtionPage');
     Route::post('newAdminReg','adminController@registrtion');
-
+    route::get('updateDetailsPage/{id}','adminController@updateDetailsPage');
+    Route::put('updateDetailsPage/updationUserData/{id}','adminController@updationUserData');
+    Route::put('updateDetailsPage/updateUserPassword/{id}','adminController@updateUserPassword');
 
 
     /**

@@ -96,7 +96,17 @@ use Illuminate\Support\Facades\Validator;
     
      public function registrtion(request $request)
      {
-        // $user = Auth::user();
+        $rules = [
+            'firstName' => 'required|',
+            'email' => 'required|email',
+            'mobile' => 'min:10|max:10',
+            'password' => 'required|min:8|max:20',
+        ];
+        $customMessages = [
+            'required' => 'The attribute field is required.'
+        ];
+        $this->validate($request, $rules, $customMessages);
+        
         $newUser = new User();
         $newUser->firstName = $request->input('firstName');
         $newUser->lastName = $request->input('lastName');
@@ -109,6 +119,33 @@ use Illuminate\Support\Facades\Validator;
         $newUser->save();
         return redirect('showAllUsers');//have to redirecting after registration of sub user
         
+     }
+
+     public function updateDetailsPage($id)
+     {
+         $user = User::find($id);
+         return view('admin.subAdmin.editDetails')->with('user',$user);
+     }
+     public function updationUserData(request $request,$id)
+     {
+         $user = User::find($id);
+         $user->firstName = $request->input('firstName');
+         $user->lastName = $request->input('lastName');
+         $user->email = $request->input('email');
+         $user->mobile = $request->input('mobile');
+         $user->is_admin = $request->input('is_admin');
+         $user->update();
+         return \redirect('showAllUsers')->with('status',"Details Updated successfully");
+         // return $request;
+     }
+     public function updateUserPassword(request $request,$id)
+     {
+        $user = User::find($id);
+        $user->password = hash::make($request->input('password')) ;
+        $user->update();
+        return \redirect('showAllUsers')->with('status',"Password Updated successfully");
+
+
      }
 
     

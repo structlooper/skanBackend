@@ -10,9 +10,30 @@
         <div class="row">
             <div class="col-sm-3"></div>
           <div class="col-12 col-sm-10 mt-4 ml-4 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+              
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+            @if (session('status'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+              {{session('status')}}
+            </div>
+            @endif
+            @if (session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              {{session('error')}}
+            </div>
+            @endif
+
             <div class="card card-primary">
               <div class="card-header">
-                <h4>Register</h4>
+                <h4>Register New Admin</h4>
               </div>
               <div class="card-body">
                 <form method="POST" action="newAdminReg">
@@ -51,20 +72,11 @@
                    
                   </div>
                   <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                      <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
-                    </div>
-                  </div>
-                  <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                       Register
                     </button>
                   </div>
                 </form>
-              </div>
-              <div class="mb-4 text-muted text-center">
-                Already Registered? <a href="auth-login.html">Login</a>
               </div>
             </div>
           </div>
@@ -73,4 +85,30 @@
     </section>
   </div>
 
+@endsection
+
+@section('adminJsFile')
+ <!-- General JS Scripts -->
+ <script src="../assets/js/app.min.js"></script>
+ <!-- JS Libraies -->
+ <script src="../assets/bundles/datatables/datatables.min.js"></script>
+ <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+ <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+ <!-- Page Specific JS File -->
+ <script src="../assets/js/page/datatables.js"></script>
+ <!-- Template JS File -->
+ <script src="../assets/js/scripts.js"></script>
+ <!-- Custom JS File -->
+<script>
+    $(function () {
+      setTimeout(function () {
+        if ($(".alert").is(":visible")){
+              //you may add animate.css class for fancy fadeout
+            $(".alert").fadeOut("fast");
+                          }
+                      }, 2000)
+
+                });
+</script>
+    
 @endsection
