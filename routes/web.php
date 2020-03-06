@@ -32,6 +32,17 @@ Route::group(['middleware' => ['auth','is_admin']], function (){
     route::get('changePassword','AdminController@resetPass');
     route::put('changing','AdminController@changing');
     route::get('category',"ValuesController@category");
+
+    /**
+     * SubAdmin Routes
+     * by structlooper
+     */
+    Route::get('showAllUsers','adminController@showAllUser');
+    Route::get('newAdmin','adminController@registrtionPage');
+    Route::post('newAdminReg','adminController@registrtion');
+
+
+
     /**
      * store data in database after collection from Values modal
      * by structlooper

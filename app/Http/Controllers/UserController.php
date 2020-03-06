@@ -77,29 +77,6 @@
 
         }
 
-        // /**
-        //  * Method used to login
-        //  * check
-        //  */
-        // public function login(Request $request){
-
-        //         if($request->isMethod('post')){
-        
-        //             $data = $request->input();
-        //             if(Auth::attempt(['email'=>$data['email'] , 'password' => $data['password'] ,  'is_admin' => '1'])){
-        //                 Session::put('loginAceess' , '1');
-        //                 Cookie::queue('email', '1231231', 333);
-        //                 return redirect('/dashboard');
-        
-        //             }
-        //             else{
-        //                 $errors = new MessageBag(['message' => ['Email and password is invalid.']]);
-        //                 return Redirect::back()->withErrors($errors)->withInput(Input::except('password'));
-        //             }
-        //         }
-        
-        //         return redirect('/');
-        //     }
         public function getAuthenticatedUser()
             {
                     try {

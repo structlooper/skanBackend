@@ -92,7 +92,7 @@ use Illuminate\Support\Facades\Validator;
                     
                     $image = $request->file('image');
                     $extension = $image->getClientOriginalExtension(); //geting extension from image Extension
-                    $filename =  uniqid() . '.' . $extension;
+                    $filename =  $user->userId . '.' . $extension;
                     $image->move('uploades\profileImages\\', $filename);
                     $user->Image = $filename;
                     $user->update();

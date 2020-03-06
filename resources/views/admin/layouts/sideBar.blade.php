@@ -27,7 +27,8 @@
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="user-check"></i><span>Auth</span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Register New Users</a></li>
+            <li><a href="showAllUsers">Show All Users</a></li>
+            <li><a href="newAdmin">Register New Users</a></li>
             <li><a href="changePassword">Change Password</a></li>
           </ul>
         </li>

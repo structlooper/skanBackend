@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,4 +75,41 @@ use Illuminate\Support\Facades\Validator;
         return redirect()->back()->with('status' , 'Entered Password is incorrect Please try again with correct password');
 
     }
+
+
+
+
+    /**
+     * function for the registration sub admin
+     * by structlooper
+     */
+    public function showAllUser()
+    {
+        $users = User::all();
+        return view('admin.subAdmin.showAllUser')->with('users' ,$users);
+    }
+
+    public function registrtionPage()
+    {
+        return view('admin.regSubAdmin');
+    }
+    
+     public function registrtion(request $request)
+     {
+        // $user = Auth::user();
+        $newUser = new User();
+        $newUser->firstName = $request->input('firstName');
+        $newUser->lastName = $request->input('lastName');
+        $str = substr($request->input('firstName'), -4);
+        $newUser->userId = $str . rand(10000000,9);
+        $newUser->email = $request->input('email');
+        $newUser->mobile = $request->input('mobile');
+        $newUser->password = hash::make($request->input('password'));
+        $newUser->is_admin = 'admin';
+        $newUser->save();
+        return redirect('showAllUsers');//have to redirecting after registration of sub user
+        
+     }
+
+    
 }
