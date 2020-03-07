@@ -10,42 +10,59 @@
       <ul class="sidebar-menu">
         <li class="menu-header">Main</li>
         <li class="dropdown active">
-          <a href="adminDashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+          <a href="{{route('adminDashboard')}}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
         </li>
         
         <li class="menu-header">Pages</li>
           <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                data-feather="briefcase"></i><span>Working Pages</span></a>
+                data-feather="briefcase"></i><span>Website</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="category">Category</a></li>
-              <li><a class="nav-link" href="termsAndCondition">Terms And Condition</a></li>
-              <li><a class="nav-link" href="privacyPolicy">Privacy Policy</a></li>
+              <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
+              <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
+              <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
+              <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                    data-feather="database"></i><span>Slide Data</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{route('insertBanner')}}">Insert New Data</a></li>
+                  <li><a href="{{route('showAll')}}">View Slide Data</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                    data-feather="check-circle"></i><span>About</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{route('aboutData')}}">View About</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
-              data-feather="user-check"></i><span>Auth</span></a>
+              data-feather="user-check"></i><span>S-Admin</span></a>
           <ul class="dropdown-menu">
-            <li><a href="showAllUsers">Show All Users</a></li>
-            <li><a href="newAdmin">Register New Users</a></li>
-            <li><a href="changePassword">Change Password</a></li>
+            <li><a href="{{route('showAlls-admin')}}"><i
+              data-feather="users"></i><span>Show S-Admins</span></a></li>
+            <li><a href="{{route('newAdmin')}}"><i
+              data-feather="user-plus"></i><span>Register New S-Admins</span></a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
-              data-feather="user-check"></i><span>Slide Data</span></a>
+              data-feather="user-check"></i><span>Users</span></a>
           <ul class="dropdown-menu">
-            <li><a href="insertBanner">Insert New Data</a></li>
-            <li><a href="showAll">View Slide Data</a></li>
+            <li><a href="{{route('showAllsUsers')}}"><i
+              data-feather="users"></i><span>Show All Users</span></a></li>
           </ul>
         </li>
+        
+        
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
-              data-feather="user-check"></i><span>About Data</span></a>
+              data-feather="settings" ></i><span>Settings</span></a>
           <ul class="dropdown-menu">
-            <li><a href="aboutData">View About Data</a></li>
-            {{-- <li><a href="showAll">View Slide Data</a></li> --}}
+            <li><a href="{{route('changePassword')}}">Change Password</a></li>
           </ul>
         </li>
         

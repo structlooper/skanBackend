@@ -86,7 +86,12 @@ use Illuminate\Support\Facades\Validator;
     public function showAllUser()
     {
         $users = User::all();
-        return view('admin.subAdmin.showAllUser')->with('users' ,$users);
+        return view('admin.Users.showAllUser')->with('users' ,$users);
+    }
+    public function showAllSAdmins()
+    {
+        $users = User::all();
+        return view('admin.subAdmin.showAllSAdmins')->with('users' ,$users);
     }
 
     public function registrtionPage()

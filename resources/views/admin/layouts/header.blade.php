@@ -36,7 +36,6 @@
   
   <!-- General JS Scripts -->
   
-  @yield('adminJsFile')
   
   
   <script src="../assets/js/app.min.js"></script>
@@ -48,6 +47,8 @@
   <script src="../assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="../assets/js/custom.js"></script>
+  @yield('adminJsFile')
+
 </body>
 
 

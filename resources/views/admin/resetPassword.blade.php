@@ -45,7 +45,7 @@
                 </div>
                 
                 @endif
-                <form method="POST" action="changing">
+                <form method="POST" action="{{route('changing')}}">
                     @csrf
                     @method('PUT')
                   <div class="form-group">

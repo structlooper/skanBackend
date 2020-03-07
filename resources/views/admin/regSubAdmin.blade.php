@@ -31,7 +31,7 @@
             </div>
             @endif
 
-            <div class="card card-primary">
+            <div class="card card-primary mt-5">
               <div class="card-header">
                 <h4>Register New Admin</h4>
               </div>

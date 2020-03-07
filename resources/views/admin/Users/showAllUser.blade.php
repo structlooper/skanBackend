@@ -50,7 +50,7 @@
                 </div>
                 @endif
                 <div class="card-header" >
-                  <h4>About uploaded details</h4>
+                  <h4>Registered Users</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -69,7 +69,9 @@
                         </thead>
                         <tbody>
                           @foreach ($users as $key=> $item)
-                          
+                          @if ($item->is_admin == 'user')
+                              
+                         
                           <tr>
                             
                               <td class="align-middle">
@@ -90,6 +92,7 @@
                               </td>
                             <td><a href="updateDetailsPage/{{$item->id}}" class="btn btn-warning">Edit</a> </td >
                           </tr>
+                          @endif
                           @endforeach
                         </tbody>
                       </table>
