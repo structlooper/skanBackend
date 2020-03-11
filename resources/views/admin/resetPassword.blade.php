@@ -18,7 +18,6 @@
 </head>
 
 <body>
-  <div class="loader"></div>
   <div id="app">
     <section class="section">
       <div class="container mt-5">

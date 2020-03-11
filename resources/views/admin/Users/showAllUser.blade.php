@@ -1,3 +1,4 @@
+@extends('admin.layouts.sideBar')
 @section('adminTitle')
     Title
 @endsection
@@ -86,7 +87,7 @@
                              {{ $item->is_admin }}
                               </td>
                               <td>
-                                {{$item->status}}
+                               <b> {{$item->status}}</b>
                               </td>
                             <td>
                               {{-- view button --}}

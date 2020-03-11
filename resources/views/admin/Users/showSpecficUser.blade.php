@@ -1,3 +1,4 @@
+@extends('admin.layouts.sideBar')
 @section('adminTitle')
     View Details
 @endsection
@@ -16,7 +17,9 @@
   <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
 
   <style>
-
+    .font{
+      font-size: large;
+    }
   </style>
 @endsection
 @section('adminSide')
@@ -54,7 +57,7 @@
                       
                       <div class="card-body">
                         <div class="table-responsive">
-                            <div class="container border rounded pt-2">
+                            <div class="container border rounded pt-2 font">
                               <div class="row border-bottom">
                                 <div class="col-sm">
                                   <a href="#" class="btn btn-warning backLink">Go Back</a>
@@ -76,7 +79,7 @@
                                             <div class="form-group clearfix">
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
 
                                                    <b> Name </b> : {{$user->firstName}} {{$user->lastName}}
                                                   </div>
@@ -88,7 +91,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
                                                   
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
                                                    <b> Email </b>: {{$user->email}}
 
                                                   </div>
@@ -99,7 +102,7 @@
                                             <div class="form-group clearfix">
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
 
                                                    <b> Mobile </b>: {{$user->mobile}}
                                                   </div>
@@ -111,7 +114,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
                                                   
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
                                                    <b> profile </b>: {{$user->is_admin}}
 
                                                   </div>
@@ -123,7 +126,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
                                                   
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
 
                                                    <b> User_id </b>: {{$user->userId}}
                                                   </div>  
@@ -135,7 +138,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
                                                   
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
                                                    <b> Address </b>: {{$user->address}}
 
                                                   </div>
@@ -147,7 +150,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
 
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
                                                     <b> PinCode </b>: {{$user->pinCode}}
                                                 </div>
 
@@ -160,7 +163,7 @@
                                               <label class="col-sm-12 control-label ">
                                                 <div class="row">
                                                   
-                                                  <div class="col-sm-auto">
+                                                  <div class="col-sm-auto font">
                                                    <b> Profile_created </b>: Profile created on {{date('d M, Y', strtotime($user->created_at))}}
 
                                                   </div>
