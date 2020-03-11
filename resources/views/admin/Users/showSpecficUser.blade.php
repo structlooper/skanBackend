@@ -63,10 +63,10 @@
                                                 Name
                                               </label>
                                               <div class="row">
-                                              <div class="col-lg-5 ml-2">
+                                              <div class="col-lg-5">
                                               <input   type="text" class="heading-1-text" value="{{$user->firstName}}"     name='firstName' >
                                               </div>
-                                              <div class="col-lg-5 ml-2">
+                                              <div class="col-lg-5">
                                               <input   type="text" class="heading-1-text" value="{{$user->lastName}}"     name='lastName' >
                                               </div>
                                             </div>

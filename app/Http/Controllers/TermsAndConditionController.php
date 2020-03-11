@@ -10,15 +10,14 @@ class TermsAndconditionController extends Controller
     public function view()
     {
         $datas = TermsAndcondition::all();
-        return view('admin.TermsAndCondition.showTerms')->with('datas',$datas);
+        return view('admin.TermsAndCondition.showTerms')->with('datas', $datas);
     }
-    public function updationTermsData(request $request,$id)
+    public function updationTermsData(request $request, $id)
     {
         $data = TermsAndcondition::find($id);
         $data->content = $request->input('content');
         $data->update();
         return redirect('termsAndCondition')->with('status', 'Data Updated successfuly');
-
     }
 
     /**
@@ -28,6 +27,6 @@ class TermsAndconditionController extends Controller
     {
         $data = TermsAndcondition::all();
         $status = TRUE;
-        return response()->json(compact('data','status'),200);
+        return response()->json(compact('data', 'status'), 200);
     }
 }

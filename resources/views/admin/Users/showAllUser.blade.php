@@ -54,15 +54,14 @@
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
-                      {{-- <a href="#" class="btn btn-lg btn-primary ml-4 showModal"  style="float: right;">Add Values</a> --}}
                       <table class="table table-striped" id="table-2">
                         <thead>
                           <tr>
                               <th>Name</th>
                               <th>Email</th>
-                              <th>User Id</th>
                               <th>mobile</th>
                               <th>Profile</th>
+                              <th>Status</th>
                               <th>Action</th>
                             
                           </tr>
@@ -82,15 +81,33 @@
                               {{$item->email}}
                             </td>
                             <td>
-                              {{$item->userId}}
-                            </td>
-                            <td>
                              {{ $item->mobile }}
                               </td>
                             <td>
                              {{ $item->is_admin }}
                               </td>
-                            <td><a href="updateDetailsPage/{{$item->id}}" class="btn btn-warning">Edit</a> </td >
+                              <td>
+                                {{$item->status}}
+                              </td>
+                            <td>
+                              {{-- view button --}}
+
+                              <a href="#" class="btn btn-warning"><i
+                                data-feather="user" ></i><span>view</span></a>
+
+
+                              @if ($item->status === 'active')
+                              {{-- inactive button --}}
+                              <a href="#" class="btn btn-danger"><i
+                                data-feather="user-x" ></i><span> </span></a>
+                                
+                                @elseif($item->status === 'inactive')
+                                {{-- active button --}}
+                                <a href="#" class="btn btn-success"><i
+                                  data-feather="user-check" ></i><span> </span></a>
+                                
+                                @endif
+                            </td >
                           </tr>
                           @endif
                           @endforeach
