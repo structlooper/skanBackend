@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Validator;
                 return response()->json(compact('data'),200);
 
             }
-
             public function closed() 
             {
                 $data = "Only authorized users can see this";

@@ -27,7 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 Route::get('open', 'DataController@open');
-
+Route::post('paymentData', 'PaymentController@PayDatas');
 /**
  * DOM api URLS
  * by structlooper
