@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
 
+  <style>
+
+  </style>
 @endsection
 @section('adminSide')
     <div id="app">
@@ -29,7 +32,7 @@
                
                 <div class="row">
                   <div class="col-sm-3"></div>
-                    <div class="card">
+                    <div class="card col-sm-6">
                   @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
@@ -53,13 +56,20 @@
                       <div class="card-body">
                         <div class="table-responsive">
                             <div class="container border rounded pt-2">
-                                        <h2>View Records</h2>
+                              <div class="row border-bottom">
+                                <div class="col-sm">
+                                  <a href="#" class="btn btn-warning backLink">Go Back</a>
+                                </div>
+                                <div class="col-sm-9">
+                                  <h2 class="text-left  mb-2">View Records</h2>
+                                </div>
+                              </div>
                                         
                                            
                                            
                                            
                                             <div class="form-group clearfix">
-                                              <label class="col-sm-12 control-label ">
+                                              <label class="col-sm-12 control-label text-center">
                                                 <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/profileImages/' . $user->Image) }}"  style=" height: 200px;">                            
                                               </label>
                                             </div>
@@ -69,10 +79,18 @@
                                                 <div class="row">
                                                   <div class="col-sm-auto">
 
-                                                    Name : {{$user->firstName}} {{$user->lastName}}
+                                                   <b> Name </b> : {{$user->firstName}} {{$user->lastName}}
                                                   </div>
+                                                 
+                                                </div>
+                                              </label>
+                                            </div>
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  
                                                   <div class="col-sm-auto">
-                                                    Email : {{$user->email}}
+                                                   <b> Email </b>: {{$user->email}}
 
                                                   </div>
                                                 </div>
@@ -84,15 +102,31 @@
                                                 <div class="row">
                                                   <div class="col-sm-auto">
 
-                                                    Mobile : {{$user->mobile}}
+                                                   <b> Mobile </b>: {{$user->mobile}}
                                                   </div>
+                                                  
+                                                </div>
+                                              </label>
+                                            </div>
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  
                                                   <div class="col-sm-auto">
-                                                    profile : {{$user->is_admin}}
+                                                   <b> profile </b>: {{$user->is_admin}}
 
                                                   </div>
+                                                 
+                                                </div>
+                                              </label>
+                                            </div>
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  
                                                   <div class="col-sm-auto">
 
-                                                    User_id : {{$user->userId}}
+                                                   <b> User_id </b>: {{$user->userId}}
                                                   </div>  
                                                 </div>
                                               </label>
@@ -103,15 +137,24 @@
                                                 <div class="row">
                                                   
                                                   <div class="col-sm-auto">
-                                                    Address : {{$user->address}}
+                                                   <b> Address </b>: {{$user->address}}
 
                                                   </div>
-                                                  <div class="col-sm-auto">
-                                                    PinCode : {{$user->pinCode}}
-
-                                                  </div>
+                                                 
                                                 </div>
                                               </label>
+                                            </div>
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+
+                                                  <div class="col-sm-auto">
+                                                    <b> PinCode </b>: {{$user->pinCode}}
+                                                </div>
+
+                                                  </div>
+                                                </label>
+                                             
                                             </div>
                                             
                                             <div class="form-group clearfix">
@@ -119,7 +162,7 @@
                                                 <div class="row">
                                                   
                                                   <div class="col-sm-auto">
-                                                    Profile_created : Profile created on {{date('d M, Y', strtotime($user->created_at))}}
+                                                   <b> Profile_created </b>: Profile created on {{date('d M, Y', strtotime($user->created_at))}}
 
                                                   </div>
                                                 </div>
@@ -140,7 +183,7 @@
           
 @endsection
 
-@include('admin.modals.updaingSlide')      
+    
     
 @section('adminJsFile')
     <!-- General JS Scripts -->
@@ -168,6 +211,13 @@
                         }, 2000)
 
                   });
+
+                  $(document).ready(function(){
+                  $('.backLink').click(function(){
+                      parent.history.back();
+                      return false;
+                  });
+              });
     </script>
     
 @endsection

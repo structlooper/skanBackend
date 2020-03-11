@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 
     Route::get('showAllsUsers', 'AdminController@showAllUser')->name('showAllsUsers');
     Route::get('showUserDetails/{id}', 'AdminController@UserSpecificProfile');
+    Route::get('inactivate/{id}', 'AdminController@inactivateUserProfile');
+    Route::get('activate/{id}', 'AdminController@activateUserProfile');
     /**
      * store data in database after collection from Values modal
      * by structlooper

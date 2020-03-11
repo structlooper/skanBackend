@@ -91,22 +91,24 @@
                               </td>
                             <td>
                               {{-- view button --}}
+                              
+                                  <a href="showUserDetails/{{ $item->id}}" class="btn btn-warning"><i
+                                    data-feather="user" ></i><span>view</span></a>
+                                    
+                                    @if ($item->status === 'active')
+                                    {{-- inactive button --}}
+                                  <a href="inactivate/{{ $item->id}}" data-toggle="tooltip" title="Deactivate this Profile?" class="btn btn-danger"><i
+                                      data-feather="user-x" ></i><span> </span></a>
+                                      
+                                      @elseif($item->status === 'inactive')
+                                      {{-- active button --}}
+                                  <a href="activate/{{ $item->id}}" data-toggle="tooltip" title="Activate this Profile?" class="btn btn-success"><i
+                                        data-feather="user-check" ></i><span> </span></a>
+                                      
+                                      @endif
+                               
 
-                            <a href="showUserDetails/{{ $item->id}}" class="btn btn-warning"><i
-                                data-feather="user" ></i><span>view</span></a>
 
-
-                              @if ($item->status === 'active')
-                              {{-- inactive button --}}
-                              <a href="#" class="btn btn-danger"><i
-                                data-feather="user-x" ></i><span> </span></a>
-                                
-                                @elseif($item->status === 'inactive')
-                                {{-- active button --}}
-                                <a href="#" class="btn btn-success"><i
-                                  data-feather="user-check" ></i><span> </span></a>
-                                
-                                @endif
                             </td >
                           </tr>
                           @endif
@@ -146,6 +148,10 @@
                                 }
                             }, 2000)
 
+                      });
+
+                      $(document).ready(function(){
+                      $('[data-toggle="tooltip"]').tooltip();   
                       });
     </script>
  @endsection

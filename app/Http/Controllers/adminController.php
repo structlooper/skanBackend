@@ -122,7 +122,7 @@ use Illuminate\Support\Facades\Validator;
         $newUser->password = hash::make($request->input('password'));
         $newUser->is_admin = 'admin';
         $newUser->save();
-        return redirect('showAllUsers');//have to redirecting after registration of sub user
+        return redirect('showAllAdmins');//have to redirecting after registration of sub user
         
      }
 
@@ -140,7 +140,7 @@ use Illuminate\Support\Facades\Validator;
          $user->mobile = $request->input('mobile');
          $user->is_admin = $request->input('is_admin');
          $user->update();
-         return \redirect('showAllUsers')->with('status',"Details Updated successfully");
+         return \redirect('showAllAdmins')->with('status',"Details Updated successfully");
          // return $request;
      }
      public function updateUserPassword(request $request,$id)
@@ -148,7 +148,7 @@ use Illuminate\Support\Facades\Validator;
         $user = User::find($id);
         $user->password = hash::make($request->input('password')) ;
         $user->update();
-        return \redirect('showAllUsers')->with('status',"Password Updated successfully");
+        return \redirect('showAllAdmins')->with('status',"Password Updated successfully");
 
 
      }
@@ -156,6 +156,21 @@ use Illuminate\Support\Facades\Validator;
      {
          $user = User::find($id);
          return view('admin.Users.showSpecficUser')->with('user',$user);
+     }
+
+     function inactivateUserProfile($id)
+     {
+         $user = User::find($id);
+         $user->status = 'inactive';
+         $user->update();
+         return redirect()->back()->with('status','Profile Deactivated successfully');
+     }
+     function activateUserProfile($id)
+     {
+         $user = User::find($id);
+         $user->status = 'active';
+         $user->update();
+         return redirect()->back()->with('status','Profile Activated successfully');
      }
 
     
