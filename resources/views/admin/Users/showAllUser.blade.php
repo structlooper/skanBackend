@@ -92,7 +92,7 @@
                             <td>
                               {{-- view button --}}
 
-                              <a href="#" class="btn btn-warning"><i
+                            <a href="showUserDetails/{{ $item->id}}" class="btn btn-warning"><i
                                 data-feather="user" ></i><span>view</span></a>
 
 

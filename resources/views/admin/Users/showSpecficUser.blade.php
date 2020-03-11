@@ -1,6 +1,6 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Update Details
+    View Details
 @endsection
 
 @section('adminStyleCss')
@@ -28,7 +28,7 @@
               <div class="section-body">
                
                 <div class="row">
-                  <div class="col-sm-2"></div>
+                  <div class="col-sm-3"></div>
                     <div class="card">
                   @if ($errors->any())
                       <div class="alert alert-danger">
@@ -53,72 +53,79 @@
                       <div class="card-body">
                         <div class="table-responsive">
                             <div class="container border rounded pt-2">
-                                <form method="post"  action="updationUserData/{{ $user->id }}" >
-                                        @csrf
-                                        @method('PUT')
-                                        <h2>Update Records</h2>
+                                        <h2>View Records</h2>
                                         
+                                           
+                                           
+                                           
                                             <div class="form-group clearfix">
                                               <label class="col-sm-12 control-label ">
-                                                Name
+                                                <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/profileImages/' . $user->Image) }}"  style=" height: 200px;">                            
                                               </label>
-                                              <div class="row">
-                                              <div class="col-lg-5">
-                                              <input   type="text" class="heading-1-text" value="{{$user->firstName}}"     name='firstName' >
-                                              </div>
-                                              <div class="col-lg-5">
-                                              <input   type="text" class="heading-1-text" value="{{$user->lastName}}"     name='lastName' >
-                                              </div>
                                             </div>
+
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  <div class="col-sm-auto">
+
+                                                    Name : {{$user->firstName}} {{$user->lastName}}
+                                                  </div>
+                                                  <div class="col-sm-auto">
+                                                    Email : {{$user->email}}
+
+                                                  </div>
+                                                </div>
+                                              </label>
+                                            </div>
+
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  <div class="col-sm-auto">
+
+                                                    Mobile : {{$user->mobile}}
+                                                  </div>
+                                                  <div class="col-sm-auto">
+                                                    profile : {{$user->is_admin}}
+
+                                                  </div>
+                                                  <div class="col-sm-auto">
+
+                                                    User_id : {{$user->userId}}
+                                                  </div>  
+                                                </div>
+                                              </label>
                                             </div>
                                             
                                             <div class="form-group clearfix">
-                                                <label class="col-sm-12 control-label ">
-                                                  Email
-                                                </label>
-                                                <div class="mx-2">
-                                                    <input   type="text" class="heading-1-text" value="{{$user->email}}"     name='email' >
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  
+                                                  <div class="col-sm-auto">
+                                                    Address : {{$user->address}}
+
+                                                  </div>
+                                                  <div class="col-sm-auto">
+                                                    PinCode : {{$user->pinCode}}
+
+                                                  </div>
                                                 </div>
-                                              </div>
-                                            <div class="form-group clearfix">
-                                                <label class="col-sm-12 control-label ">
-                                                  Mobile
-                                                </label>
-                                                <div class="mx-2">
-                                                    <input   type="text" class="heading-1-text" value="{{$user->mobile}}"     name='mobile' >
-                                                </div>
-                                              </div>
-                                            <div class="form-group clearfix">
-                                                <label class="col-sm-12 control-label ">
-                                                  profile
-                                                </label>
-                                                <div class="mx-2">
-                                                    <input   type="text" class="heading-1-text" value="{{$user->is_admin}}"     name='is_admin' >
-                                                </div>
-                                              </div>
-                                            
-                                              
-                                        <div class="col-sm-12 padd">
-                                          <input type="submit" class="btn btn-warning btn-lg" >
-                                          </div>
-                                </form>
-                                <form method="post"  action="updateUserPassword/{{ $user->id }}" >
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="form-group clearfix">
-                                            <label class="col-sm-12 control-label ">
-                                              New Password
-                                            </label>
-                                            <div class="mx-2">
-                                                <input   type="text" class="heading-1-text" required  name='password' >
+                                              </label>
                                             </div>
-                                          </div>
                                             
-                                              
-                                        <div class="col-sm-12 padd">
-                                          <input type="submit" value="Update Password" class="btn btn-dark btn-lg" >
-                                          </div>
-                                </form>
+                                            <div class="form-group clearfix">
+                                              <label class="col-sm-12 control-label ">
+                                                <div class="row">
+                                                  
+                                                  <div class="col-sm-auto">
+                                                    Profile_created : Profile created on {{date('d M, Y', strtotime($user->created_at))}}
+
+                                                  </div>
+                                                </div>
+                                              </label>
+                                            </div>
+                                            
                             </div>
                         </div>
                       </div>

@@ -152,6 +152,11 @@ use Illuminate\Support\Facades\Validator;
 
 
      }
+     public function UserSpecificProfile($id)
+     {
+         $user = User::find($id);
+         return view('admin.Users.showSpecficUser')->with('user',$user);
+     }
 
     
 }
