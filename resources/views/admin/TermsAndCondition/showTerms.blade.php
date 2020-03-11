@@ -84,15 +84,11 @@
   </div>
   @endsection
  @section('adminJsFile')
-    <!-- General JS Scripts -->
-  <script src="../assets/js/app.min.js"></script>
   <!-- JS Libraies -->
   <script src="../assets/bundles/summernote-master/dist/summernote.min.js"></script>
   <script src="../assets/bundles/codemirror/lib/codemirror.js"></script>
   <script src="../assets/bundles/codemirror/mode/javascript/javascript.js"></script>
   <script src="../assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
-  <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="../assets/js/custom.js"></script>
       

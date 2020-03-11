@@ -65,7 +65,7 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     route::post('dataUpdate/{id}', 'ValuesController@updateValues');
 
     /**
-     * Data Manuplation for Bannner
+     * DOM for Bannner
      * by structlooper
      */
     Route::get('insertBanner', 'BannerDataController@view')->name('insertBanner');

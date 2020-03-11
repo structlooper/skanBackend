@@ -43,7 +43,7 @@ class BannerDataController extends Controller
         
         $bannerData->save();
 
-        return redirect()->back()->with('status', 'data Uploaded successfuly');
+        return redirect('showAll')->with('status', 'data Uploaded successfuly');
     }
     public function show()
     {
