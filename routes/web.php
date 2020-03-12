@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     route::get('timeline', 'AdminController@timeline')->name('timeline');
     route::get('changePassword', 'AdminController@resetPass')->name('changePassword');
     route::put('changing', 'AdminController@changing')->name('changing');
-    route::get('category', "ValuesController@category")->name('category');
+    route::get('category', "CategoryController@category")->name('category');
 
     /**
      * SubAdmin Routes
@@ -53,16 +53,16 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
      * by structlooper
      * 27/02/2020
      */
-    route::post('addingValues', "ValuesController@addingValues")->name('addingValues');
+    route::post('addingValues', "CategoryController@addingValues")->name('addingValues');
 
     /**
      * specific entery delting after storing
      * by structlooper
      * 
      */
-    route::get('delete/{id}', 'ValuesController@deleting');
-    route::get('data/{id}', 'ValuesController@showData');
-    route::post('dataUpdate/{id}', 'ValuesController@updateValues');
+    route::get('delete/{id}', 'CategoryController@deleting');
+    route::get('data/{id}', 'CategoryController@showData');
+    route::post('dataUpdate/{id}', 'CategoryController@updateValues');
 
     /**
      * DOM for Bannner

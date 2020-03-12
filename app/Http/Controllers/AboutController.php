@@ -10,15 +10,15 @@ class AboutController extends Controller
     public function showData()
     {
         $data = about::all();
-        return view('admin.about.showAll')->with('data',$data);
+        return view('admin.about.showAll')->with('data', $data);
     }
 
-    public function updateAboutData(request $request,$id)
+    public function updateAboutData(request $request, $id)
     {
         $data = about::find($id);
-        return view('admin.about.editAboutData')->with('data',$data);
+        return view('admin.about.editAboutData')->with('data', $data);
     }
-    public function updationData(request $request,$id)
+    public function updationData(request $request, $id)
     {
         $data = about::find($id);
         $data->heading = $request->input('heading');
@@ -29,8 +29,6 @@ class AboutController extends Controller
             $filename =  uniqid() . '.' . $extension;
             $file->move('uploades/AboutSideImage/', $filename);
             $data->image = $filename;
-
-        
         }
         $data->update();
         return redirect('aboutData')->with('status', 'Data Updated successfuly');
@@ -43,6 +41,6 @@ class AboutController extends Controller
     {
         $data = about::all();
         $status = True;
-        return response()->json(compact('data','status'),200);
+        return response()->json(compact('data', 'status'), 200);
     }
 }

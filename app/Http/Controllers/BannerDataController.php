@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\bannerData;
 use App\BannerDatas;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class BannerDataController extends Controller
         ];
         $this->validate($request, $rules, $msg);
 
-        $bannerData = new BannerDatas();
+        $bannerData = new bannerData();
         $bannerData->heading = $request->input('heading');
         $bannerData->desc = $request->input('desc');
         if ($request->hasfile('image')) {
@@ -47,19 +48,19 @@ class BannerDataController extends Controller
     }
     public function show()
     {
-        $data = BannerDatas::all();
+        $data = bannerData::all();
         $status = 'success';
         return response()->json(compact('data','status'),200);
     }
     public function showAll()
     {
-        $data = BannerDatas::all();
+        $data = bannerData::all();
         return view('admin.banner.showAll',compact('data',$data));
     }
 
     public function updateView(request $request, $id)
     {
-        $data = BannerDatas::findOrFail($id);
+        $data = bannerData::findOrFail($id);
         return view('admin.banner.updateSpecfic')->with('data',$data);
     }
     public function updationData(request $request,$id)
@@ -75,7 +76,7 @@ class BannerDataController extends Controller
             'max' => 'Maximum charactor extended',
         ];
         $this->validate($request, $rules, $msg);
-        $data = BannerDatas::find($id);
+        $data = bannerData::find($id);
         $data->heading = $request->input('heading');
         $data->desc = $request->input('desc');
         if ($request->hasfile('image')) {
@@ -92,7 +93,7 @@ class BannerDataController extends Controller
     }
     public function delete($id)
     {
-        $data = BannerDatas::find($id);
+        $data = bannerData::find($id);
         $data->delete();
         return redirect()->back()->with('status','Data deleted Successfully');
     }

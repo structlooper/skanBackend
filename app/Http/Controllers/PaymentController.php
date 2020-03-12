@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\paymentDatas;
+use App\paymentData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -27,7 +27,7 @@ class PaymentController extends Controller
                 'error' => $validator->errors()->first(),
             ];
         } else {
-            $data = new paymentDatas();
+            $data = new paymentData();
             $data->pay_id = $request->input('pay_id');
             $data->user_id = $request->input('user_id');
             $data->status = $request->input('status');

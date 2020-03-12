@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Log extends Model
+class log extends Model
 {
     /**
      *  The attributes that are mass assignable.
