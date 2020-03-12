@@ -18,9 +18,7 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="briefcase"></i><span>Website</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
-              <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
-              <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
+             
               <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                     data-feather="database"></i><span>Slide Data</span></a>
@@ -36,6 +34,18 @@
                   <li><a href="{{route('aboutData')}}">View About</a></li>
                 </ul>
               </li>
+              
+              <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
+              <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
+              <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="book"></i><span>Study Material</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{route('insertStudyMaterial')}}">Add New Material</a></li>
+              <li><a href="#">View All Material</a></li>
             </ul>
           </li>
         <li class="dropdown">

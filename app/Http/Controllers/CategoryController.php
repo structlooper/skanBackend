@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\categoryDatas;
+use App\categoryData;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function category()
     {
-        $dataDb = categoryDatas::all();
+        $dataDb = categoryData::all();
         return view('admin.category.categoryPage')->with('dataDb',$dataDb);
     }
     public function addingValues(request $request)
@@ -23,17 +23,17 @@ class CategoryController extends Controller
             'max' => 'Maximum charactor extended',
         ];
         $this->validate($request, $rules, $msg);
-        $data = new categoryDatas();
+        $data = new categoryData();
         $data->source = $request->input('source');
         $data->category = $request->input('category');
         $data->save();
-        $dataDb = categoryDatas::all();
+        $dataDb = categoryData::all();
         return redirect('category')->with('status','Data Saved succesfully')->with('dataDb',$dataDb);
     }
     public function deleting($id)
     {
-        $dataDb = categoryDatas::all();
-        $data = categoryDatas::find($id);
+        $dataDb = categoryData::all();
+        $data = categoryData::find($id);
                 if (is_null($data)) {
                     return redirect('category')->with('error',"Please enter a valid id");
                 }
@@ -42,12 +42,12 @@ class CategoryController extends Controller
     }
     public function showData($id)
     {
-        $data = categoryDatas::find($id);
+        $data = categoryData::find($id);
         return $data;
     }
     public function updateValues(request $request,$id)
     {
-        $data = categoryDatas::find($id);
+        $data = categoryData::find($id);
         $data->source = $request->input('source') ?? $data->source;
         $data->category = $request->input('category') ?? $data->category;
         $data->update();

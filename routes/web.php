@@ -93,4 +93,14 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
      */
     Route::get('privacyPolicy', 'privacyPolicyController@view')->name('privacyPolicy');
     Route::put('updationPrivacyPolicy/{id}', 'privacyPolicyController@updationPrivacyData');
+
+
+    /**
+     * DOM for StudyMaterial Datas
+     * by structlooper
+     */
+    Route::get('showStudyMaterial', 'StudyMaterialController@showStudyMaterial')->name('showStudyMaterial');
+    Route::get('insertStudyMaterial', 'StudyMaterialController@insertStudyMaterial')->name('insertStudyMaterial');
+    Route::post('insertionStudyMaterial', 'StudyMaterialController@insertionStudyMaterial')->name('insertionStudyMaterial');
+    Route::get('subOptions/{id}', 'StudyMaterialController@subOptions');
 });
