@@ -23,7 +23,7 @@
                
               <div class="row">
                   <div class="col-sm-3"></div>
-                    <div class="card">
+                    <div class="border card">
                   @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
@@ -46,11 +46,11 @@
                       
                       <div class="card-body">
                         <div class="table-responsive">
-                            <div class="container border rounded pt-2">
+                            <div class="container  pt-2">
                             <form method="post"  action="{{route('insertionStudyMaterial')}}" enctype="multipart/form-data" >
                                         @csrf
                                         <h2>Insert Study Materials</h2>
-                                            <div class="form-group clearfix">
+                                            <div class="form-group ">
                                               <label class="col-sm-12 control-label ">
                                                 Title
                                               </label>
@@ -60,38 +60,32 @@
                                             </div>
                                             <div class="row ml-1">
                                              
-                                              <div class="col-sm-5">
+                                              <div class="col-sm-6">
 
                                                 <select class="form-control form-control-sm" name='source' id="Study_material_options">
-                                                  <option>Source</option>
+                                                  <option>Select Source</option>
                                                   @foreach ($datas as $item)
                                                   <option class="optionsSources" data-value='{{ $item->source }}' value="{{ $item->source }}">{{ $item->source }}</option>
                                                   @endforeach
                                                 </select>
                                               </div>
-                                              <div class="col-sm-5">
-                                                  <select  class="form-control form-control-sm" name="second_select" id="second_select"></select>
-                                                  {{-- <option>Category</option>
-                                                  <option>Small select</option>
-                                                  <option>Small select</option>
-                                                  <option>Small select</option>
-                                                  <option>Small select</option>
-                                                  <option>Small select</option>
-                                                </select> --}}
+                                              <div class="col-sm-5 my-auto">
+                                                  <select  class="form-control form-control-sm" name="category" id="second_select" disabled>
+                                                  </select>
                                               </div>
                                             </div>
                                               <br>  
-                                            <div class="col-sm-10 ml-3 control-label border">
+                                            <div class="col-sm-11 ml-3 control-label border">
                                               <label for="">upload image</label>
                                               <div class="col-sm-6 ml-2">
-                                                <input required type="file" name="image" />
+                                                <input  type="file" name="image" />
                                               </div>
                                             </div>
                                             <br>
-                                            <div class="col-sm-10 ml-3 control-label border">
+                                            <div class="col-sm-11 ml-3 control-label border">
                                               <label for="">upload Other Document</label>
                                               <div class="col-sm-6 ml-2">
-                                                <input required type="file" name="attachment" />
+                                                <input  type="file" name="attachment" />
                                               </div>
                                             </div>
                                             <br>
@@ -123,17 +117,11 @@
 @endsection     
     
 @section('adminJsFile')
-
-   {{-- <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-   <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
-   <!-- Page Specific JS File -->
-   <script src="assets/js/page/datatables.js"></script> --}}
     <script>
       
          $(function () {
         setTimeout(function () {
            if ($(".alert").is(":visible")){
-                //you may add animate.css class for fancy fadeout
                $(".alert").fadeOut("fast");
                             }
                         }, 2000)
@@ -141,22 +129,24 @@
                   });
 
                   $('#Study_material_options').change(function() {
-                  
-
-                      var selected_option = $(this).find(':selected').attr('data-value')
-                      console.log(selected_option)
-                    // })
+                    $('#second_select').html('').prop('disabled', true)
+                    var selected_option = $(this).find(':selected').attr('data-value')
                     $.ajax({
                         url: "{{ url('subOptions') }}" + "/" + selected_option,
-                        type: 'POST',
+                        type: 'GET',
                         cache: false,
-                        dataType: 'JSON',
-                        success: function(return_data) {
-                          $('#second_select').html(return_data);
+                        dataType: 'json',
+                        success: function(result) {
+                          if (result.length > 0) {
+                            $.each(result, function (i, val) {
+                              $('#second_select').append(`<option value="${val.id}">${val.category}</option>`)
+                            })
+                            $('#second_select').prop('disabled', false)
+                          }
+                          
                         }
                     });
                   });
     </script>
     
 @endsection
-{{-- <h1>banner page</h1> --}}

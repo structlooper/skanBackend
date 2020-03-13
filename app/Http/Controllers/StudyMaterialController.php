@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\categoryData;
 use App\studyMaterialData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class StudyMaterialController extends Controller
@@ -13,20 +14,20 @@ class StudyMaterialController extends Controller
     {
         return view('admin.StudyMaterial.ShowStudyMaterial');
     }
+
+
     public function insertStudyMaterial()
     {
         $datas = categoryData::all();
         return view('admin.StudyMaterial.InsertStudyMaterial')->with('datas', $datas);
     }
+
+
     function subOptions($id)
     {
-         $source = $id;
-         $newoptions = categoryData::select('category')->where('source', $source);
-         $ret_val = '';
-        foreach ($newoptions as $option) {
-            $ret_val .= "<option>$option</option>";
-        }
-        echo $ret_val;
+
+        $newoptions =  DB::table('category_datas')->where('source', '=', $id)->get();
+        return response()->json($newoptions);
     }
     public function insertionStudyMaterial(request $request)
     {
@@ -44,9 +45,17 @@ class StudyMaterialController extends Controller
             $filename =  $data->title . '.' . $extension;
             $image->move('uploades\StudyMaterial\\', $filename);
             $data->Image = $filename;
-            $data->save();
-
-            return \redirect()->back()->with('status', 'Study Material Data saved successfully');
         }
+        if ($request->file('attachment')) {
+
+            $otherDocument = $request->file('attachment');
+            $extension = $otherDocument->getClientOriginalExtension(); //geting extension from image Extension
+            $filename =  $data->title . '.' . $extension;
+            $otherDocument->move('uploades\StudyMaterial\attachments\\', $filename);
+            $data->otherDocument = $filename;
+            
+        }
+        $data->save();
+        return \redirect()->back()->with('status', 'Study Material Data saved successfully');
     }
 }
