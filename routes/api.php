@@ -40,6 +40,8 @@ Route::get('TermsAndCondition','TermsAndConditionController@showTerms');
 
 Route::get('privacyPolicy','privacyPolicyController@showPrivate');
 
+Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
+
     /**
      * These are Jwt verified urls 
      * Created by Structlooper
