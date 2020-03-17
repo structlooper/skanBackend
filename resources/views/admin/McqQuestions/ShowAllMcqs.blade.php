@@ -82,6 +82,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger"><i data-feather="trash-2"></i></button>
+                                                    
                                                   </form>
                                                 </div>
                                             </div>
