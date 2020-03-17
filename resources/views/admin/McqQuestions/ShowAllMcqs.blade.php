@@ -66,7 +66,7 @@
                                       <td>{{ $item->questionName }} </td>
                                       <td> {{ $item->category }} </td>
                                       <td>{{ $item->timeDuration }} </td>
-                                      <td><a href="# {{ $item->id}}" class="btn btn-success"><i data-feather="file-plus"> </i>Add</a></td>
+                                      <td><a href="createQuiz/{{ $item->id}}" class="btn btn-success"><i data-feather="file-plus"> </i>Add</a></td>
                                                   
                                               
                                       <td class=""><a href="# {{ $item->id}}" class="btn btn-warning"><i data-feather="eye"></i>View</a></td>

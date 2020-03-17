@@ -18,6 +18,7 @@ class PaymentController extends Controller
             'user_id' => 'required|string|max:255',
             'status' => 'required',
             'courses' => 'required|string|max:255',
+            'amount' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -32,13 +33,14 @@ class PaymentController extends Controller
             $data->user_id = $request->input('user_id');
             $data->status = $request->input('status');
             $data->courses = $request->input('courses');
-            $data->save();
+            $data->amount = $request->input('amount');
             $msg = 'Payment Data saved successfully';
             // return response()->json(compact('data', 'msg'), 200);
             $status = [
                 'success' => True,
                 'msg' => 'Payment Data saved successfully',
             ];
+            $data->save();
 
             $results =  response()->json(compact('data', 'status'), 201);
         }

@@ -51,9 +51,10 @@
 
           <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                data-feather="book-open"></i><span>Questions</span></a>
+                data-feather="book-open"></i><span>Quiz</span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ route('mcqsQuestion') }}">Quertions Category</a></li>
+              {{-- <li><a href="{{ route('createQuiz') }}">Create Quiz</a></li> --}}
+              <li><a href="{{ route('mcqsQuestion') }}">Quiz Categories</a></li>
             </ul>
           </li>
 

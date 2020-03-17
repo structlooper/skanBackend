@@ -39,7 +39,6 @@ Route::get('termsAndCondition', 'TermsAndConditionController@showTerms');
 
 Route::get('privacyPolicy', 'privacyPolicyController@showPrivate');
 
-Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
 
 /**
  * These are Jwt verified urls 
@@ -47,6 +46,7 @@ Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
  * 25/02/20
  */
 Route::group(['middleware' => ['jwt.verify']], function () {
+    Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::get('closed', 'DataController@closed');
     route::put('update', 'DataController@updateProfile');

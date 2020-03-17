@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\categoryData;
 use Illuminate\Http\Request;
 use App\McqsCategoryQuestionData;
+use App\quizQuestion;
 use Illuminate\Support\Facades\DB;
 
 class McqQuestionsController extends Controller
@@ -58,5 +59,12 @@ class McqQuestionsController extends Controller
         $delData->delete();
         return redirect('mcqsQuestion')->with('error','Details Deleted successfully!!');
 
+    }
+
+    function createQuiz($id)
+    {
+        $categoryData = categoryData::find($id);
+        $datas = quizQuestion::all();
+        return view('admin.McqQuestions.createQuizPage')->with('datas',$datas)->with('categoryData',$categoryData);
     }
 }

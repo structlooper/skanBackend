@@ -113,4 +113,9 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('updateMcqsCategory/{id}', 'McqQuestionsController@updateMcqsCategory');
     Route::post('updateMcqsCategory/{id}', 'McqQuestionsController@updateMcqsCategoryupdation');
     Route::delete('deleteMcqsCategory/{id}','McqQuestionsController@deleteMcqsCategory');
+
+    /**
+     * Create Quiz Routes
+     */
+    Route::get('createQuiz/{id}', 'McqQuestionsController@createQuiz')->name('createQuiz'); 
 });

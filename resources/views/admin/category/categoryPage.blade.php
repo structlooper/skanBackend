@@ -15,9 +15,7 @@
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="assets/css/custom.css">
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
-    <style>
- 
-    </style>
+  
 @endsection
 
 @section('adminSide')
@@ -120,12 +118,12 @@
           </div>
         
   </div>
+  @include('admin.modals.addingValues')
 @endsection
 {{-- 
   This file containing the modal of adding values in the table via modal
   
   --}}
-  @include('admin.modals.addingValues')
 
 
    
