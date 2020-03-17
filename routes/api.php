@@ -27,29 +27,29 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 Route::get('open', 'DataController@open');
-Route::post('paymentData', 'PaymentController@PayDatas');
 /**
  * DOM api URLS
  * by structlooper
  */
-Route::get('slideData','BannerDataController@show');
+Route::get('slideData', 'BannerDataController@show');
 
-Route::get('aboutData','AboutController@aboutData');
+Route::get('aboutData', 'AboutController@aboutData');
 
-Route::get('TermsAndCondition','TermsAndConditionController@showTerms');
+Route::get('termsAndCondition', 'TermsAndConditionController@showTerms');
 
-Route::get('privacyPolicy','privacyPolicyController@showPrivate');
+Route::get('privacyPolicy', 'privacyPolicyController@showPrivate');
 
 Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
 
-    /**
-     * These are Jwt verified urls 
-     * Created by Structlooper
-     * 25/02/20
-     */
-    Route::group(['middleware' => ['jwt.verify']], function() {
-        Route::get('user', 'UserController@getAuthenticatedUser');
-        Route::get('closed', 'DataController@closed');
-        route::put('update','DataController@updateProfile');
-        route::post('imageUpdate','DataController@imageUpdate');
-    });
+/**
+ * These are Jwt verified urls 
+ * Created by Structlooper
+ * 25/02/20
+ */
+Route::group(['middleware' => ['jwt.verify']], function () {
+    Route::get('user', 'UserController@getAuthenticatedUser');
+    Route::get('closed', 'DataController@closed');
+    route::put('update', 'DataController@updateProfile');
+    route::post('imageUpdate', 'DataController@imageUpdate');
+    Route::post('paymentData', 'PaymentController@PayDatas');
+});

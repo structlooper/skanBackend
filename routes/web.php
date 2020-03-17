@@ -103,4 +103,14 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('insertStudyMaterial', 'StudyMaterialController@insertStudyMaterial')->name('insertStudyMaterial');
     Route::post('insertionStudyMaterial', 'StudyMaterialController@insertionStudyMaterial')->name('insertionStudyMaterial');
     Route::get('subOptions/{id}', 'StudyMaterialController@subOptions');
+
+    /**
+     * MCQs Quiestion routes
+     * by structlooper
+     */
+    Route::get('mcqsQuestion', 'McqQuestionsController@view')->name('mcqsQuestion');
+    Route::post('addMcqsCategory', 'McqQuestionsController@addMcqsCategory')->name('addMcqsCategory');
+    Route::get('updateMcqsCategory/{id}', 'McqQuestionsController@updateMcqsCategory');
+    Route::post('updateMcqsCategory/{id}', 'McqQuestionsController@updateMcqsCategoryupdation');
+    Route::delete('deleteMcqsCategory/{id}','McqQuestionsController@deleteMcqsCategory');
 });

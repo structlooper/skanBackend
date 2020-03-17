@@ -48,6 +48,15 @@
               <li><a href="#">View All Material</a></li>
             </ul>
           </li>
+
+          <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="book-open"></i><span>Questions</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ route('mcqsQuestion') }}">Quertions Category</a></li>
+            </ul>
+          </li>
+
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="user-check"></i><span>S-Admin</span></a>
@@ -58,6 +67,7 @@
               data-feather="user-plus"></i><span>Register New S-Admins</span></a></li>
           </ul>
         </li>
+        
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="user-check"></i><span>Users</span></a>
