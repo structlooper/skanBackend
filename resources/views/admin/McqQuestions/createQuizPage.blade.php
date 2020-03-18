@@ -30,8 +30,8 @@
               <div class="section-body">
                
                 <div class="row">
-                  <div class="col-sm-1"></div>
-                    <div class="card col-sm-10">
+                  <div class="col-sm"></div>
+                    <div class="card col-sm-12">
                   @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
@@ -52,62 +52,65 @@
                       </div>
                   @endif
                       <div class="card-header" >
-                        <h4>{{ $categoryData->category }} Category</h4>
+                        <h4>Add Question</h4>
                       </div>
                       <div class="card-body">
                         <div class="table-responsive">
-                          <a href="#" class="btn btn-lg btn-primary ml-4 showModal" data-toggle="modal" data-target="#addQuizModal" style="float: right;"><i data-feather="plus-circle"></i> Add Question</a>
+                          <a href="#" class="btn btn-lg btn-success ml-4 showModal" data-toggle="modal" data-target="#addQuizModal" style="float: right;"><i data-feather="plus-circle"></i> Add Question</a>
                          
                           <table class="table table-striped" id="table-2">
                             <thead>
                               <tr>
-                                <th class="text-center pt-3">
-                                  <div class="custom-checkbox custom-checkbox-table custom-control">
-                                    <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
-                                      class="custom-control-input" id="checkbox-all">
-                                    <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                                  </div>
-                                </th>
+                                
                                 <th>&&</th>
-                                <th>Question Name</th>
+                                <th>Category</th>
+                                <th>Question</th>
                                 <th>Option 1</th>
                                 <th>Option 2</th>
                                 <th>Option 3</th>
                                 <th>Option 4</th>
                                 <th>Answer</th>
-                                <th>added Date</th>
+                                <th>Description</th>
                                 <th>Action</th>
-                                {{-- <th></th> --}}
                                 
                               </tr>
                             </thead>
                             <tbody>
+                              {{-- {{ $key = 0 }} --}}
                               @foreach ($datas as $key=> $item)
+                              
                                   
+                              
                               <tr>
-                                <td class="text-center pt-2">
-                                  <div class="custom-checkbox custom-control">
-                                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                      id="checkbox-1">
-                                    <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                                  </div>
-                                </td>
-                                <td>{{$key+1}} </td >
+                                
+                                <td>{{ $key + 1 }}</td >
+                                <td>{{ $item->questionName }}</td >
                                 <td class="align-middle">
-                                  {{$item->source}}
+                                  {{$item->question}}
                                   </div>
                                 </td>
                                 <td>
-                                  {{$item->category}}
+                                  {{$item->option1}}
                                 </td>
-                                <td>{{date('d M, Y', strtotime($item->created_at))}}</td>
                                 <td>
-                                  <a href="#" data-id='{{$item->id}}' class="btn btn-warning Del viewData"><i class="
-                                    far fa-edit" >edit</i></a>
+                                  {{$item->option2}}
                                 </td>
-                              <td>
-                                <a href="delete" dele-id='{{$item->id}}'   class="btn btn-danger comDel" ><i class="material-icons deleteModal">delete</i>
-                              </td>
+                                <td>
+                                  {{$item->option3}}
+                                </td>
+                                <td>
+                                  {{$item->option4}}
+                                </td>
+                                <td>
+                                  {{$item->answer}}
+                                </td>
+                                <td>{{$item->desc}}</td>
+                                <td>
+                                    <a href="{{  url('updateMcqsQuizQuestion') }}/{{$item->id}}" class="btn btn-primary"><i class="
+                                      far fa-edit" >edit</i></a>
+                                    
+                                      <form action="{{  url('deleteMcqsQuizQuestion') }}/{{$item->id}}" method="post"> @csrf @method('DELETE') <button type="submit" class="btn btn-danger btn-sm"><i class="material-icons deleteModal">delete</i></button> </form>
+                                </td>
                               </tr>
                               @endforeach
                             </tbody>
@@ -132,14 +135,6 @@
 <!-- Page Specific JS File -->
 <script src={{ url("assets/js/page/datatables.js") }}></script>
 <script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
 
     $(function () {
         setTimeout(function () {
@@ -149,10 +144,5 @@
                         }, 2000)
 
                   });
-
-
-
-    
-       
     </script>
 @endsection

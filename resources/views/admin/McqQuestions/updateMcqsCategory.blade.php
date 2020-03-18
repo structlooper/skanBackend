@@ -15,7 +15,7 @@
                  <div class=" card col-sm ">
                     <h1 class="text-center">Question Management</h1>
                     <br>
-              <form action="addMcqsCategory/{{ $updateData->id }} " method="POST">
+              <form action="{{ url('updateMcqsCategory') }}/{{ $updateData->id }}" method="POST">
                 @csrf
                 @method('POST')
               <div class="form-group">

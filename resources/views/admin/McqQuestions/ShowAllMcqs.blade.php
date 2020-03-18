@@ -62,7 +62,7 @@
                                   
                                       
                                   <tr>
-                                      <th scope="row"> {{ $key+1 }} </th>
+                                      <th scope="row"> {{$key+1 }} </th>
                                       <td>{{ $item->questionName }} </td>
                                       <td> {{ $item->category }} </td>
                                       <td>{{ $item->timeDuration }} </td>

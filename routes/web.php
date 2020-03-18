@@ -118,4 +118,10 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
      * Create Quiz Routes
      */
     Route::get('createQuiz/{id}', 'McqQuestionsController@createQuiz')->name('createQuiz'); 
+    Route::post('addMcqsQuizQuestion' , 'McqQuestionsController@addMcqsQuizQuestion')->name('addMcqsQuizQuestion');
+    Route::get('updateMcqsQuizQuestion/{id}', 'McqQuestionsController@updateMcqsQuizQuestion');
+    Route::put('updatationQuizQuestion/{id}', 'McqQuestionsController@updatationQuizQuestion');
+    Route::delete('deleteMcqsQuizQuestion/{id}' , 'McqQuestionsController@deleteMcqsQuizQuestion');
+
+
 });
