@@ -144,8 +144,15 @@
                   });
 
 
-
-    
+                 
+                  $('#timeToggle').change(function() {
+                  if( $(this).val() == 'yes') {
+                      $('#timeValue').prop( "disabled", false );
+                  } else {       
+                      $('#timeValue').prop( "disabled", true );
+                  }
+              });
+                      
        
     </script>
 @endsection

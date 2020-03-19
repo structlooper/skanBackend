@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\categoryData;
+use App\quizQuestion;
 use Illuminate\Http\Request;
 use App\McqsCategoryQuestionData;
-use App\quizQuestion;
 use Illuminate\Support\Facades\DB;
 
 class McqQuestionsController extends Controller
 {
+    // public $categoryDataID;
+    private $version;
     public function view()
     {
         $categoryData = categoryData::all();
@@ -65,11 +67,10 @@ class McqQuestionsController extends Controller
     function createQuiz($id)
     {
         $datas = DB::table('quiz_questions')->select('quiz_questions.id','quiz_questions.question' ,'quiz_questions.option1','quiz_questions.option2' , 'quiz_questions.option3', 'quiz_questions.category' , 'quiz_questions.option4','quiz_questions.answer','quiz_questions.desc', 'mcqs_category_question_data.questionName' , 'mcqs_category_question_data.timeDuration')->join('mcqs_category_question_data','quiz_questions.category', '=','mcqs_category_question_data.id')->get();
-        // return $datas;
-        $categoryData = McqsCategoryQuestionData::find($id);
-        // $datas = quizQuestion::all();
-        // print_r($datas);
-        return view('admin.McqQuestions.createQuizPage')->with('datas',$datas)->with('categoryData',$categoryData);
+        $categoryDataID = McqsCategoryQuestionData::find($id);
+        session(['categoryDataID' => $categoryDataID]);
+
+        return view('admin.McqQuestions.createQuizPage')->with('datas',$datas)->with('categoryData',$categoryDataID);
     }
     function addMcqsQuizQuestion(request $request)
     {
@@ -101,10 +102,10 @@ class McqQuestionsController extends Controller
         return redirect()->back()->with('status','Question saved successfully!!');
     }
 
-    function updateMcqsQuizQuestion(request $request ,$id)
+    function updateMcqsQuizQuestion($id)
     {   
-        
-        $it =  $request->route('id');
+        $products = session('categoryDataID');
+        $it =  $products->id;
         $updateQuiz = quizQuestion::find($id);
         return view('admin.McqQuestions.updateQuizPage')->with('updateQuiz',$updateQuiz)->with('id',$it);
     }

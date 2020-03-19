@@ -1,3 +1,4 @@
+@inject('carbon', 'Carbon\Carbon')
 @extends('admin.layouts.sideBar')
 
 @section('adminTitle')
@@ -20,7 +21,6 @@
 @endsection
 
 @section('adminSide')
-
     <div id="app">
       <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
@@ -116,11 +116,31 @@
                       <div class="input-group-prepend">
                       </div>
                       <select class="form-control"   name="answer" id="">
-                          <option>Select Answer</option>
-                          <option value="option_1" >option 1</option>
-                          <option value="option_2" >option 2</option>
-                          <option value="option_3" >option 3</option>
-                          <option value="option_4" >option 4</option>
+                        <option value="{{ $updateQuiz->answer }} ">{{ $updateQuiz->answer }}</option>
+                        @if ($updateQuiz->answer === 'option_1')
+                        <option value="option_2" >option 2</option>
+                        <option value="option_3" >option 3</option>
+                        <option value="option_4" >option 4</option>
+                        
+                        @elseif ($updateQuiz->answer === 'option_2')
+                        <option value="option_2" >option 1</option>
+                        <option value="option_3" >option 3</option>
+                        <option value="option_4" >option 4</option>
+                       
+                        @elseif ($updateQuiz->answer === 'option_3')
+                        <option value="option_2" >option 1</option>
+                        <option value="option_3" >option 2</option>
+                        <option value="option_4" >option 4</option>
+                       
+                        @elseif ($updateQuiz->answer === 'option_4')
+                        <option value="option_2" >option 1</option>
+                        <option value="option_4" >option 2</option>
+                        <option value="option_3" >option 3</option>
+                            
+                        @else
+                            
+                        @endif
+                        
                       </select>
                   </div>
                   </div>
@@ -129,7 +149,6 @@
                         <div class="input-group">
                           <div class="input-group-prepend">
                           </div>
-                          {{-- <input type="text" class="form-control"   name="desc"> --}}
                           <div class="form-group">
           
                             <textarea name="desc" id="" rows="5" cols="100" style="width: 100%">{{ $updateQuiz->desc }}</textarea>

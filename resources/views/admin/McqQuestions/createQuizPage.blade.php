@@ -107,7 +107,7 @@
                                 <td>{{$item->desc}}</td>
                                 <td>
                                     <a href="{{  url('updateMcqsQuizQuestion') }}/{{$item->id}}" class="btn btn-primary"><i class="
-                                      far fa-edit" >edit</i></a>
+                                      far fa-edit" ></i></a>
                                     
                                       <form action="{{  url('deleteMcqsQuizQuestion') }}/{{$item->id}}" method="post"> @csrf @method('DELETE') <button type="submit" class="btn btn-danger btn-sm"><i class="material-icons deleteModal">delete</i></button> </form>
                                 </td>
