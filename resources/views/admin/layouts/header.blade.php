@@ -10,13 +10,13 @@
   @yield('adminStyleCss')
  
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="../assets/css/app.min.css">
+  <link rel="stylesheet" href="{{ url("assets/css/app.min.css") }}
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="{{ url("assets/css/style.css") }}
+  <link rel="stylesheet" href="{{ url("assets/css/components.css") }}
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+  <link rel="stylesheet" href="{{ url("assets/css/custom.css") }}
+  <link rel='shortcut icon' type='image/x-icon' href='{{ url("assets/img/favicon.ico' />
 </head>
 
 <body>
@@ -38,15 +38,15 @@
   
   
   
-  <script src="../assets/js/app.min.js"></script>
+  <script src="{{ url("assets/js/app.min.js") }}</script>
   <!-- JS Libraies -->
-  <script src="../assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src="{{ url("assets/bundles/apexcharts/apexcharts.min.js") }}</script>
   <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index.js"></script>
+  <script src="{{ url("assets/js/page/index.js") }}</script>
   <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
+  <script src="{{ url("assets/js/scripts.js") }}</script>
   <!-- Custom JS File -->
-  <script src="../assets/js/custom.js"></script>
+  <script src="{{ url("assets/js/custom.js") }}</script>
   @yield('adminJsFile')
 
 </body>
