@@ -48,6 +48,15 @@
               <li><a href="{{ route('showStudyMaterial') }}">List Material</a></li>
             </ul>
           </li>
+         
+          <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="video"></i><span>Video Tutorials</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{route('insertStudyMaterial')}}">Add Material</a></li>
+              <li><a href="{{ route('showStudyMaterial') }}">List Material</a></li>
+            </ul>
+          </li>
 
           <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
@@ -59,12 +68,12 @@
 
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
-              data-feather="user-check"></i><span>S-Admin</span></a>
+              data-feather="user-check"></i><span>Sub-Admin</span></a>
           <ul class="dropdown-menu">
             <li><a href="{{route('showAlls-admin')}}"><i
-              data-feather="users"></i><span>List S-Admins</span></a></li>
+              data-feather="users"></i><span>List Sub-Admins</span></a></li>
             <li><a href="{{route('newAdmin')}}"><i
-              data-feather="user-plus"></i><span>New S-Admins</span></a></li>
+              data-feather="user-plus"></i><span>New Sub-Admins</span></a></li>
           </ul>
         </li>
         
