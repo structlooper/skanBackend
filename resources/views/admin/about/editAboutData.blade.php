@@ -1,19 +1,19 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+    Update About
 @endsection
 
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="../assets/css/app.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/style.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/components.css") }}>
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/custom.css") }}>
   <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
 
 @endsection
@@ -100,20 +100,19 @@
       </div>
           
 @endsection
-@include('admin.modals.updaingSlide')      
     
 @section('adminJsFile')
     <!-- JS Libraies -->
-    <script src="../assets/bundles/datatables/datatables.min.js"></script>
-    <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
-    <script src="../assets/js/app.min.js"></script>
+    <script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
+    <script src={{ url("public/assets/js/app.min.js") }}></script>
   <!-- JS Libraies -->
-  <script src="../assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src={{ url("public/assets/bundles/apexcharts/apexcharts.min.js") }}></script>
   <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index.js"></script>
+  <script src={{ url("public/assets/js/page/index.js") }}></script>
   <!-- Custom JS File -->
-  <script src="../assets/js/custom.js"></script>
+  <script src={{ url("public/assets/js/custom.js") }}></script>
     <script>
          $(function () {
         setTimeout(function () {

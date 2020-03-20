@@ -3,7 +3,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="adminDashboard"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+        <a href="adminDashboard"> <img alt="image" src={{ url("public/assets/img/logo.png") }} class="header-logo" /> <span
             class="logo-name">Skan  </span>
         </a>
       </div>
@@ -23,8 +23,8 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                     data-feather="database"></i><span>Slide Data</span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{route('insertBanner')}}">Insert New Data</a></li>
-                  <li><a href="{{route('showAll')}}">View Slide Data</a></li>
+                  <li><a href="{{route('insertBanner')}}">Add</a></li>
+                  <li><a href="{{route('showAll')}}">List</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -44,8 +44,8 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="book"></i><span>Study Material</span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{route('insertStudyMaterial')}}">Add New Material</a></li>
-              <li><a href="#">View All Material</a></li>
+              <li><a href="{{route('insertStudyMaterial')}}">Add Material</a></li>
+              <li><a href="#">List Material</a></li>
             </ul>
           </li>
 
@@ -62,9 +62,9 @@
               data-feather="user-check"></i><span>S-Admin</span></a>
           <ul class="dropdown-menu">
             <li><a href="{{route('showAlls-admin')}}"><i
-              data-feather="users"></i><span>Show S-Admins</span></a></li>
+              data-feather="users"></i><span>List S-Admins</span></a></li>
             <li><a href="{{route('newAdmin')}}"><i
-              data-feather="user-plus"></i><span>Register New S-Admins</span></a></li>
+              data-feather="user-plus"></i><span>New S-Admins</span></a></li>
           </ul>
         </li>
         
@@ -73,7 +73,7 @@
               data-feather="user-check"></i><span>Users</span></a>
           <ul class="dropdown-menu">
             <li><a href="{{route('showAllsUsers')}}"><i
-              data-feather="users"></i><span>Show All Users</span></a></li>
+              data-feather="users"></i><span>List Users</span></a></li>
           </ul>
         </li>
         

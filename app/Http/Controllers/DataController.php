@@ -3,11 +3,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Foundation\Auth\User;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-
-use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
@@ -87,8 +88,10 @@ class DataController extends Controller
             $image = $request->file('image');
             $extension = $image->getClientOriginalExtension(); //geting extension from image Extension
             $filename =  $user->userId . '.' . $extension;
-            $image->move('uploades\profileImages\\', $filename);
-            $user->Image = $filename;
+            $path ='uploades/profileImages/';
+            $image->move($path, $filename);
+            
+            $user->Image = URL::asset($path). "/" . $filename;
             $user->update();
             $msg = 'Image updated sussefully';
             return response()->json(compact('msg', 'user'), 200);

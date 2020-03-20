@@ -1,20 +1,14 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+    Insert Banner 
 @endsection
 
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
+  
 
 @endsection
 @section('adminSide')
@@ -95,18 +89,18 @@
                 </div>
                
               </div>
-            
+            </div>
       </div>
       
 @endsection     
     
 @section('adminJsFile')
    <!-- JS Libraies -->
-   <script src="assets/bundles/datatables/datatables.min.js"></script>
-   <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-   <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+   <script src={{ url("assets/bundles/datatables/datatables.min.js")}}></script>
+   <script src={{ url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js")}}></script>
+   <script src={{ url("assets/bundles/jquery-ui/jquery-ui.min.js")}}></script>
    <!-- Page Specific JS File -->
-   <script src="assets/js/page/datatables.js"></script>
+   <script src={{ url("assets/js/page/datatables.js")}}></script>
     <script>
       
          $(function () {

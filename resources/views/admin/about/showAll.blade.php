@@ -1,20 +1,13 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+    About
 @endsection
 
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="../assets/css/app.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
     
 @endsection
 @section('adminSide')
@@ -80,7 +73,6 @@
                               {{$item->desc}}
                             </td>
                             <td>
-                              {{-- <td>{{date('d M, Y', strtotime($item->created_at))}}</td> --}}
                               <img class="featurette-image img-fluid mx-auto py-1"  alt="image" src="{{ url('uploades/AboutSideImage/' . $item->image) }}"  style=" height: 200px;">                            
                             </td>
                             <td>
@@ -102,36 +94,14 @@
           
         </div>
 @endsection
-{{-- Delete Conformation model --}}
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      Are you sure want to delete this record?
-    </div>
-    <div class="modal-footer bg-whitesmoke br">
-      
-      <a href="delete" class="btn btn-Danger" id="delete12">Yes</a>
-      
-      
-    </div>
-  </div>
-</div>
-</div>
+
 @section('adminJsFile')
 
-    <script src="../assets/bundles/datatables/datatables.min.js"></script>
-    <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
     <!-- Page Specific JS File -->
-    <script src="../assets/js/page/datatables.js"></script>
+    <script src={{ url("public/assets/js/page/datatables.js") }}></script>
   
     <!-- Custom JS File -->
     

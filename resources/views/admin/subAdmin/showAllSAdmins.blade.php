@@ -1,21 +1,14 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+    S-Admins
 @endsection
 
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="../assets/css/app.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="../assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
-    
+  <link rel="stylesheet" href={{ url("public/ssets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/ssets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
+  
 @endsection
 @section('adminSide')
 <div id="app">
@@ -52,12 +45,13 @@
                 <div class="card-header" >
                   <h4>Registered Sub Admins</h4>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body" style="margin:0%">
                     <div class="table-responsive">
-                      {{-- <a href="#" class="btn btn-lg btn-primary ml-4 showModal"  style="float: right;">Add Values</a> --}}
-                      <table class="table table-striped" id="table-2">
+                      
+                      <table class="table table-striped" id="table-1">
                         <thead>
                           <tr>
+                            <th>#</th>
                               <th>Name</th>
                               <th>Email</th>
                               <th>User Id</th>
@@ -70,10 +64,12 @@
                         <tbody>
                           @foreach ($users as $key=> $item)
                           @if ($item->is_admin == 'admin')
-                              
+                            @if (Auth::user()->id == $item->id)
+                            @continue
+                            @endif 
                          
                           <tr>
-                            
+                            <td>{{ $key }} </td>
                               <td class="align-middle">
                                 {{$item->firstName}} {{$item->lastName }}
                               </div>
@@ -90,7 +86,7 @@
                             <td>
                              {{ $item->is_admin }}
                               </td>
-                            <td><a href="updateDetailsPage/{{$item->id}}" class="btn btn-warning">Edit</a> </td >
+                            <td><a href="{{ url('updateDetailsPage') }}/{{$item->id}}" class="btn btn-warning">EDIT</a> </td >
                           </tr>
                           @endif
                           @endforeach
@@ -109,11 +105,11 @@
 @endsection
 @section('adminJsFile')
     <!-- JS Libraies -->
-    <script src="../assets/bundles/datatables/datatables.min.js"></script>
-    <script src="../assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
+    <script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
     <!-- Page Specific JS File -->
-    <script src="../assets/js/page/datatables.js"></script>
+    <script src={{ url("public/assets/js/page/datatables.js") }}></script>
     <!-- Custom JS File -->
     
     <script>

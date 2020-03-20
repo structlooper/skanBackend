@@ -1,21 +1,15 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+ Category
 @endsection
 
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/datatables.min.css">
-  <link rel="stylesheet" href="assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
-  
+  <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
+ 
 @endsection
 
 @section('adminSide')
@@ -30,7 +24,7 @@
            
             <div class="row">
               <div class="col-sm-2"></div>
-                <div class="card">
+                <div class="card col-sm-8">
               @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
@@ -61,13 +55,7 @@
                       <table class="table table-striped" id="table-2">
                         <thead>
                           <tr>
-                            <th class="text-center pt-3">
-                              <div class="custom-checkbox custom-checkbox-table custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
-                                  class="custom-control-input" id="checkbox-all">
-                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </th>
+                            
                             <th>&&</th>
                             <th>Source</th>
                             <th>Category</th>
@@ -81,13 +69,7 @@
                           @foreach ($dataDb as $key=> $item)
                               
                           <tr>
-                            <td class="text-center pt-2">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-1">
-                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
+                            
                             <td>{{$key+1}} </td >
                             <td class="align-middle">
                               {{$item->source}}
@@ -120,23 +102,14 @@
   </div>
   @include('admin.modals.addingValues')
 @endsection
-{{-- 
-  This file containing the modal of adding values in the table via modal
-  
-  --}}
-
-
-   
-        
-    
-        @section('adminJsFile')
-    <script src="assets/bundles/datatables/datatables.min.js"></script>
-    <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+@section('adminJsFile')
+    <script src={{ url("public/assets/bundles/datatables/datatables.min.js")}}></script>
+    <script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js")}}></script>
+    <script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js")}}></script>
     <!-- Page Specific JS File -->
-    <script src="assets/js/page/datatables.js"></script>
+    <script src={{ url("public/assets/js/page/datatables.js")}}></script>
     
-<script>
+    <script>
         $('.showModal').click(function(e){
                 e.preventDefault()
                 $('#exampleModal').modal('show')
@@ -161,7 +134,7 @@
                     let act = $('#lot').attr('action')
                     $('#lot').attr('action', act + '/' + data.id)
                     $('#updationModal').modal('show');
-
+                    window.reload();
                     
                   },
                   error : function() {
@@ -199,5 +172,5 @@
                   });
                  
         
-</script>
+    </script>
  @endsection

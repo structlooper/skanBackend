@@ -7,14 +7,14 @@
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href={{ url("assets/css/app.min.css") }}>
-  <link rel="stylesheet" href={{ url("assets/bundles/datatables/datatables.min.css") }}>
-  <link rel="stylesheet" href={{ url("assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
   <!-- Template CSS -->
-  <link rel="stylesheet" href={{ url("assets/css/style.css") }}>
-  <link rel="stylesheet" href={{ url("assets/css/components.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/style.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/components.css") }}>
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href={{ url("assets/css/custom.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/custom.css") }}>
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
   
 @endsection
@@ -54,7 +54,7 @@
                           </div>
                           <div class="card-body">
                             <div class="table-responsive">
-                              <a href="#" class="btn btn-lg btn-primary ml-4 showModal" data-toggle="modal" data-target="#exampleModal" style="float: right;"><i data-feather="plus-circle"></i> Add Category</a>
+                              <a href="#" class="btn btn-primary ml-4 showModal" data-toggle="modal" data-target="#exampleModal" style="float: right;"><i data-feather="plus-circle"></i> Add Category</a>
                              
                               <table class="table table-striped" id="table-2">
                                 <thead>
@@ -91,11 +91,11 @@
                                     <td>
                                       <div class="row" style="margin: 0;">
                                             <div class="col-sm-6">
-                                              <a href="{{  url('updateMcqsQuizQuestion') }}/{{$item->id}}" class="btn btn-primary"><i class="
+                                              <a href="{{  url('updateMcqsCategory') }}/{{$item->id}}" class="btn btn-primary"><i class="
                                                 far fa-edit" >edit</i></a>
                                             </div>
                                             <div class="col-sm-6">
-                                              <form action="{{  url('deleteMcqsQuizQuestion') }}/{{$item->id}}" method="post"> @csrf @method('DELETE') <button type="submit" class="btn btn-danger btn-sm"><i class="material-icons deleteModal">delete</i></button> </form>
+                                              <form action="{{  url('deleteMcqsCategory') }}/{{$item->id}}" method="post"> @csrf @method('DELETE') <button type="submit" class="btn btn-danger btn-sm"><i class="material-icons deleteModal">delete</i></button> </form>
                                             </div>
                                             
                                         
@@ -119,11 +119,11 @@
 @endsection
 
 @section('adminJsFile')
-<script src={{ url("assets/bundles/datatables/datatables.min.js") }}></script>
-<script src={{ url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
-<script src={{ url("assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
+<script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>
+<script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
+<script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
 <!-- Page Specific JS File -->
-<script src={{ url("assets/js/page/datatables.js") }}></script>
+<script src={{ url("public/assets/js/page/datatables.js") }}></script>
 <script>
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {

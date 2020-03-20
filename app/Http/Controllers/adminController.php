@@ -125,7 +125,7 @@ class AdminController extends Controller
         $newUser->password = hash::make($request->input('password'));
         $newUser->is_admin = 'admin';
         $newUser->save();
-        return redirect('showAllAdmins'); //have to redirecting after registration of sub user
+        return redirect('showAllAdmins')->with('status','Profile registed successfully!'); //have to redirecting after registration of sub user
 
     }
 
@@ -136,15 +136,48 @@ class AdminController extends Controller
     }
     public function updationUserData(request $request, $id)
     {
+         /**
+         * custom validation for email
+         * by structlooper
+         */
+        $validatorPhone = Validator::make($request->all(), [
+
+            'mobile' => 'min:10|max:10|unique:users',
+
+
+        ]);
+        /**
+         * custom validation for mobile
+         * by structlooper
+         */
+        $validatorEmail = Validator::make($request->all(), [
+
+
+            'email' => 'string|email|max:255|unique:users',
+
+        ]);
         $user = User::find($id);
+        if ($request->input('email') != $user->email) {
+            if ($validatorEmail->fails()) {
+                return \redirect()->back()->with('error', $validatorEmail->errors()->toJson());
+            }
+        } elseif ($request->input('email') == $user->email) {
+            $user->email = $user->email;
+        }
+        if ($request->input('mobile') == $user->mobile) {
+            $user->mobile = $user->mobile;
+        } else {
+            if ($validatorPhone->fails()) {
+                return \redirect()->back()->with('error', $validatorPhone->errors()->toJson());
+            }
+            $user->mobile = $request->input('mobile') ?? $user->mobile;
+        }
         $user->firstName = $request->input('firstName');
         $user->lastName = $request->input('lastName');
-        $user->email = $request->input('email');
-        $user->mobile = $request->input('mobile');
-        $user->is_admin = $request->input('is_admin');
+     
+        $user->is_admin = $request->input('is_admin') ?? $user->is_admin;
         $user->update();
         return \redirect('showAllAdmins')->with('status', "Details Updated successfully");
-        // return $request;
     }
     public function updateUserPassword(request $request, $id)
     {

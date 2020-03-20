@@ -6,7 +6,7 @@
 @section('adminStyleCss')
 
 
-   <link rel="stylesheet" href="../assets/css/custom.css">
+   <link rel="stylesheet" href={{ url("public/assets/css/custom.css") }}>
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
 
 @endsection

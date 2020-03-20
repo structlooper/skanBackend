@@ -1,22 +1,16 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Title
+Privacy Policy
 @endsection
 
 @section('adminStyleCss')
 
-<link rel="stylesheet" href="../assets/css/app.min.css">
-<link rel="stylesheet" href="../assets/bundles/summernote-master/dist/summernote.min.css">
-<link rel="stylesheet" href="../assets/bundles/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="../assets/bundles/codemirror/theme/duotone-dark.css">
-<link rel="stylesheet" href="../assets/bundles/jquery-selectric/selectric.css">
-<!-- Template CSS -->
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<!-- Custom style CSS -->
-<link rel="stylesheet" href="../assets/css/custom.css">
-<link rel='shortcut icon' type='image/x-icon' href='../assets/img/favicon.ico' />
-    
+<link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
+<link rel="stylesheet" href={{ url("public/assets/bundles/summernote-master/dist/summernote.min.css") }}>
+<link rel="stylesheet" href={{ url("public/assets/bundles/codemirror/lib/codemirror.css") }}>
+<link rel="stylesheet" href={{ url("public/assets/bundles/codemirror/theme/duotone-dark.css") }}>
+<link rel="stylesheet" href={{ url("public/assets/bundles/jquery-selectric/selectric.css") }}>
+
 @endsection
 @section('adminSide')
     
@@ -32,7 +26,7 @@
            
             <div class="row">
               <div class="col-sm-2"></div>
-                <div class="cardON">
+                <div class="card col-sm-8">
               @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
@@ -52,7 +46,7 @@
                       {{session('error')}}
                   </div>
               @endif
-                  <div class="card-bodyON">
+                  <div class="card-body">
                     <div class="table-responsive">
                       
                         @foreach ($datas as $data)
@@ -86,12 +80,12 @@
   @endsection
  @section('adminJsFile')
   <!-- JS Libraies -->
-  <script src="../assets/bundles/summernote-master/dist/summernote.min.js"></script>
-  <script src="../assets/bundles/codemirror/lib/codemirror.js"></script>
-  <script src="../assets/bundles/codemirror/mode/javascript/javascript.js"></script>
-  <script src="../assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+  <script src={{ url("public/assets/bundles/summernote-master/dist/summernote.min.js") }}></script>
+  <script src={{ url("public/assets/bundles/codemirror/lib/codemirror.js") }}></script>
+  <script src={{ url("public/assets/bundles/codemirror/mode/javascript/javascript.js") }}></script>
+  <script src={{ url("public/assets/bundles/jquery-selectric/jquery.selectric.min.js") }}></script>
   <!-- Custom JS File -->
-  <script src="../assets/js/custom.js"></script>
+  <script src={{ url("public/assets/js/custom.js") }}></script>
       
   <script>
         $(function () {

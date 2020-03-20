@@ -49,7 +49,7 @@ class McqQuestionsController extends Controller
     {
         
         $updateData = McqsCategoryQuestionData::find($id);
-        $updateData->category = $request->input('Qcategory');
+        $updateData->category = $request->input('Qcategory') ?? $updateData->category;
         $updateData->questionName = $request->input('Qname');
         $updateData->timeDuration = $request->input('Qtime');
         $updateData->update();

@@ -7,15 +7,14 @@
 @section('adminStyleCss')
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href={{ url("assets/css/app.min.css") }}>
-  <link rel="stylesheet" href={{ url("assets/bundles/datatables/datatables.min.css") }}>
-  <link rel="stylesheet" href={{ url("assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/datatables.min.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
   <!-- Template CSS -->
-  <link rel="stylesheet" href={{ url("assets/css/style.css") }}>
-  <link rel="stylesheet" href={{ url("assets/css/components.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/style.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/components.css") }}>
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href={{ url("assets/css/custom.css") }}>
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  <link rel="stylesheet" href={{ url("public/assets/css/custom.css") }}>
   
 @endsection
 
@@ -129,11 +128,11 @@
 @endsection
 
 @section('adminJsFile')
-<script src={{ url("assets/bundles/datatables/datatables.min.js") }}></script>
-<script src={{ url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
-<script src={{ url("assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
+<script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>
+<script src={{ url("public/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}></script>
+<script src={{ url("public/assets/bundles/jquery-ui/jquery-ui.min.js") }}></script>
 <!-- Page Specific JS File -->
-<script src={{ url("assets/js/page/datatables.js") }}></script>
+<script src={{ url("public/assets/js/page/datatables.js") }}></script>
 <script>
 
     $(function () {
