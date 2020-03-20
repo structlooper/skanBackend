@@ -49,7 +49,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::get('closed', 'DataController@closed');
-    route::put('update', 'DataController@updateProfile');
+    route::post('update', 'DataController@updateProfile');
     route::post('imageUpdate', 'DataController@imageUpdate');
     Route::post('paymentData', 'PaymentController@PayDatas');
 });

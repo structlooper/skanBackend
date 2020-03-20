@@ -75,9 +75,13 @@ class DataController extends Controller
         $user->address = $request->input('address') ?? $user->address;
         $user->pinCode = $request->input('pinCode') ?? $user->pinCode;
         $user->update();
-        $message = 'User Profile Updated successfully';
+        $data = 
+        [
+            'msg' => 'User Profile Updated successfully',
+            'status' => 200,
+        ];
 
-        return response()->json(compact('message', 'user'), 200);
+        return response()->json(compact('data', 'user'), 200);
     }
 
     public function imageUpdate(request $request)

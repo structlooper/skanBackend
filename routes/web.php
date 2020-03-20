@@ -103,7 +103,13 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('insertStudyMaterial', 'StudyMaterialController@insertStudyMaterial')->name('insertStudyMaterial');
     Route::post('insertionStudyMaterial', 'StudyMaterialController@insertionStudyMaterial')->name('insertionStudyMaterial');
     Route::get('subOptions/{id}', 'StudyMaterialController@subOptions');
-
+    Route::get('updateStudyMaterial/{id}', 'StudyMaterialController@updateStudyMaterial');
+    Route::put('updatationStudyMaterial/{id}', 'StudyMaterialController@updatationStudyMaterial');
+    Route::delete('deleteStudyMaterial/{id}', 'StudyMaterialController@deleteStudyMaterial');
+    
+   
+   
+   
     /**
      * MCQs Quiestion routes
      * by structlooper

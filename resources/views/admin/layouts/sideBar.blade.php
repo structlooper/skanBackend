@@ -45,7 +45,7 @@
                 data-feather="book"></i><span>Study Material</span></a>
             <ul class="dropdown-menu">
               <li><a href="{{route('insertStudyMaterial')}}">Add Material</a></li>
-              <li><a href="#">List Material</a></li>
+              <li><a href="{{ route('showStudyMaterial') }}">List Material</a></li>
             </ul>
           </li>
 
