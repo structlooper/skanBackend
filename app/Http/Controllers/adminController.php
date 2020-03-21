@@ -51,9 +51,9 @@ class AdminController extends Controller
     public function changing(request $request)
     {
         $rules = [
-            'oldPassword' => 'required|min:8|max:20',
-            'password' => 'required|min:8|max:20',
-            'confirm_password' => 'required|min:8|max:20',
+            'oldPassword' => 'required|min:6|max:20',
+            'password' => 'required|min:6|max:20',
+            'confirm_password' => 'required|min:6|max:20',
         ];
         $customMessages = [
             'required' => 'The :attribute field is required.'
