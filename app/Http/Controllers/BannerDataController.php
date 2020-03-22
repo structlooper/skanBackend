@@ -55,7 +55,7 @@ class BannerDataController extends Controller
     public function showAll()
     {
         $data = bannerData::all();
-        return view('admin.banner.showAll',compact('data',$data));
+        return view('admin.Banner.showAll',compact('data',$data));
     }
 
     public function updateView(request $request, $id)

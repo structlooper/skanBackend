@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\TermsAndcondition;
+use App\TermsAndCondition;
 use Illuminate\Http\Request;
 
 class TermsAndconditionController extends Controller
 {
     public function view()
     {
-        $datas = TermsAndcondition::all();
+        $datas = TermsAndCondition::all();
         return view('admin.TermsAndCondition.showTerms')->with('datas', $datas);
     }
     public function updationTermsData(request $request, $id)
     {
-        $data = TermsAndcondition::find($id);
+        $data = TermsAndCondition::find($id);
         $data->content = $request->input('content');
         $data->update();
         return redirect('termsAndCondition')->with('status', 'Data Updated successfuly');
@@ -25,7 +25,7 @@ class TermsAndconditionController extends Controller
      */
     function showTerms()
     {
-        $data = TermsAndcondition::all();
+        $data = TermsAndCondition::all();
         $status = TRUE;
         return response()->json(compact('data', 'status'), 200);
     }

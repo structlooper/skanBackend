@@ -8,12 +8,12 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>New Password</title>
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/style.css") }}>
+  <link rel="stylesheet" href={{ url("public/assets/css/components.css") }}>
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href={{ url("public/assets/css/custom.css") }}>
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
 </head>
 
@@ -80,7 +80,7 @@
   </div>
   <!-- General JS Scripts -->
   <!-- Custom JS File -->
-  <script src="assets/js/custom.js"></script>
+  <script src={{ url("public/assets/js/custom.js") }}></script>
 </body>
 
 

@@ -16,7 +16,7 @@ class McqQuestionsController extends Controller
     {
         $categoryData = categoryData::all();
         $datas = DB::table('mcqs_category_question_data')->select('mcqs_category_question_data.id','mcqs_category_question_data.questionName' ,'mcqs_category_question_data.timeDuration','category_datas.category'    )->join('category_datas','mcqs_category_question_data.category', '=','category_datas.id')->get();
-        return view('admin.McqQuestions.showAllMcqs')->with('datas',$datas)->with('categoryData',$categoryData);
+        return view('admin.McqQuestions.ShowAllMcqs')->with('datas',$datas)->with('categoryData',$categoryData);
     }
     public function addMcqsCategory(request $request)
     {
