@@ -1,6 +1,6 @@
 @extends('admin.layouts.sideBar')
 @section('adminTitle')
-    Users
+	Video Tutorials
 @endsection
 
 @section('adminStyleCss')
@@ -11,7 +11,9 @@
   <link rel="stylesheet" href={{ url("public/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}>
 
 @endsection
+
 @section('adminSide')
+
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
@@ -22,8 +24,8 @@
           <div class="section-body">
            
             <div class="row">
-              <div class="col-sm-2"></div>
-              <div class="card">
+              <div class="col-sm-1"></div>
+              <div class="card col-sm-10">
                 @if ($errors->any())
                 <div class="alert alert-danger">
                   <ul>
@@ -44,82 +46,80 @@
                 </div>
                 @endif
                 <div class="card-header" >
-                  <h4>Registered Users</h4>
+                  <h4>Uploaded Tutorials</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="table-2">
                         <thead>
                           <tr>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>mobile</th>
-                              <th>Profile</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                          	  <th scope="col">#</th>
+                              <th scope="col">Source</th>
+                              <th scope="col">Category</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Video</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Action</th>
                             
                           </tr>
                         </thead>
                         <tbody>
                           @foreach ($users as $key=> $item)
-                          @if ($item->is_admin == 'user')
-                              
+                          
+                              		
                          
                           <tr>
-                            
+                             <th scope="row">{{ $key+1 }}</th>
+                              <td >
+                                {{$item->source}} 
+                             
+                            </td>
+                            <td>
+
+
+                              {{$item->category}}
+                            </td>
+                            <td>
+                             {{ $item->name }}
+                              </td>
                               <td class="align-middle">
-                                {{$item->firstName}} {{$item->lastName }}
-                              </div>
-                            </td>
-                            <td>
-                              {{$item->email}}
-                            </td>
-                            <td>
-                             {{ $item->mobile }}
+                              	@if($item->video === null)
+                             	
+                             	<a href="{{ $item->link }}" class="btn  btn-success"><i
+                data-feather="video"></i><span> Link</span></a>
+                             	@else
+                             	{{-- {{ $item->video }} --}}
+                             	<a href="{{ $item->video }}" class="btn  btn-warning"><i
+                data-feather="video"></i><span> Video</span></a>
+                             	@endif
                               </td>
                             <td>
-                             {{ $item->is_admin }}
+                             {{ $item->desc }}
                               </td>
-                              <td>
-                               <b> {{$item->status}}</b>
-                              </td>
-                            <td>
-                              {{-- view button --}}
                               
-                                  <a href="showUserDetails/{{ $item->id}}" class="btn btn-warning"><i
-                                    data-feather="user" ></i><span>view</span></a>
-                                    
-                                    @if ($item->status === 'active')
-                                    {{-- inactive button --}}
-                                  <a href="inactivate/{{ $item->id}}" data-toggle="tooltip" title="Deactivate this Profile?" class="btn btn-danger"><i
-                                      data-feather="user-x" ></i><span> </span></a>
-                                      
-                                      @elseif($item->status === 'inactive')
-                                      {{-- active button --}}
-                                  <a href="activate/{{ $item->id}}" data-toggle="tooltip" title="Activate this Profile?" class="btn btn-success"><i
-                                        data-feather="user-check" ></i><span> </span></a>
-                                      
-                                      @endif
-                               
-
-
+                            <td>
+                            	<a href="{{ url('editVideoTutorial') }}/{{ $item->id }}" class="btn btn-primary">Update</a>
+                            	<form action="{{ url('deleteVideoTutorial') }}/{{ $item->id }}" method="post"> @method('DELETE')@csrf <button type="submit" class="btn btn-danger mt-2" >Delete</button> </form>
+	
+                            	{{-- <a href="{{ $item->id }}" class="btn btn-outline-danger">delete</a> --}}
                             </td >
                           </tr>
-                          @endif
                           @endforeach
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
+            	</div>
+            	</div>
               </section>
               </div>
             </div>
             
           </div>
           
-        </div>
 @endsection
+
 @section('adminJsFile')
     <!-- JS Libraies -->
     <script src={{ url("public/assets/bundles/datatables/datatables.min.js") }}></script>

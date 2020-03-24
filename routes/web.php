@@ -130,4 +130,22 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::delete('deleteMcqsQuizQuestion/{id}' , 'McqQuestionsController@deleteMcqsQuizQuestion');
 
 
+
+    /**
+     *DOM of video Tutorials
+     * by Structlooper
+     */
+    Route::get('videoTutorials' ,'VideoTutorialsController@view')->name('videoTutorials');
+
+    Route::get('insertVideo' ,'VideoTutorialsController@insertVideo')->name('insertVideo');
+    Route::post('insertionVideo' , 'VideoTutorialsController@insertionVideo')->name('insertionVideo');
+    Route::get('editVideoTutorial/{id}', 'VideoTutorialsController@editVideoTutorial');
+    Route::post('updationVideTutorials/{id}', 'VideoTutorialsController@updationVideTutorials');
+    Route::delete('deleteVideoTutorial/{id}', 'VideoTutorialsController@deleteVideTutorials');
+
+
+
+
+
+
 });

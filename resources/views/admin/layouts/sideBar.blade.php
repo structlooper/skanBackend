@@ -53,8 +53,8 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="video"></i><span>Video Tutorials</span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{route('insertStudyMaterial')}}">Add Material</a></li>
-              <li><a href="{{ route('showStudyMaterial') }}">List Material</a></li>
+              <li><a href="{{route('videoTutorials')}}">List Videos</a></li>
+              <li><a href="{{ route('insertVideo') }}">Add Videos</a></li>
             </ul>
           </li>
 
