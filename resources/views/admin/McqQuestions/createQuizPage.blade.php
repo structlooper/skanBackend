@@ -78,8 +78,6 @@
                               {{-- {{ $key = 0 }} --}}
                               @foreach ($datas as $key=> $item)
                               
-                                  
-                              
                               <tr>
                                 
                                 <td>{{ $key + 1 }}</td >

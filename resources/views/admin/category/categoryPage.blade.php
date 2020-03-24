@@ -142,6 +142,9 @@
                   }
                 });
               });
+
+
+      
       $('.comDel').click(function(e){
         e.preventDefault()
         let id = $(this).attr('dele-id')
@@ -150,7 +153,7 @@
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
-                    console.log(data)
+                    // console.log(data)
                     let dct = $('.comDel').attr('href')
                     
                     $('#delete12').attr('href', dct + '/' + data.id )
