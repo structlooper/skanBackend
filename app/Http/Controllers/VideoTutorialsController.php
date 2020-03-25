@@ -93,4 +93,25 @@ class VideoTutorialsController extends Controller
 		$delData->delete();
 		return redirect()->back()->with('error','Video Details Deleted successfully!!');
 	}
+
+    // function for the api view by structlooper
+
+    public function viewVideoTutorials(request $request)
+    {
+        $inputCategory = $request->input('category');
+        $categorys = DB::table('category_datas')->select('category_datas.category')->where('category_datas.category',$inputCategory)->get();
+        if (is_null($inputCategory)) {
+            return response()->json(['msg' => 'Please enter category']);
+        }
+        else{
+            
+        $data = DB::table('video_tutorials')
+        ->select('video_tutorials.id','video_tutorials.source','video_tutorials.name','video_tutorials.video','video_tutorials.link','video_tutorials.desc','category_datas.category')
+        ->join('category_datas','category_datas.id','=','video_tutorials.category')->where('category_datas.category',$inputCategory)
+        ->paginate(10);
+
+        return response()->json($data);
+        }
+
+    }
 }

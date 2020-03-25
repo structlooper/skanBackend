@@ -108,4 +108,54 @@ class UserController extends Controller
 
                 return response()->json(compact('user'));
         }
+
+        public function updateUserPassword(request $request)
+        {
+        $rules = [
+            'currentPassword' => 'required|min:6|max:20',
+            'newPassword' => 'required|min:6|max:20',
+            'confirmPassword' => 'required|min:6|max:20',
+        ];
+        $customMessages = [
+            'required' => 'The :attribute field is required.'
+        ];
+        $this->validate($request, $rules, $customMessages);
+
+        $user = Auth::User();
+        $oldPassword = $user->password;
+        $userOldPass = $request->input('currentPassword');
+
+        if (Hash::check($userOldPass, $oldPassword)) {
+            $newPass = $request->input('newPassword');
+            $confirmPass = $request->input('confirmPassword');
+            if ($newPass == $confirmPass) {
+
+                $user->password = Hash::make($newPass);
+                $user->update();
+
+                $data = [ 
+                        'msg' => 'Password updated successfuly',
+                        'status' => 201,
+                        'success' => True,
+
+                ];
+                return response()->json(compact('user','data'), 201);
+            }
+                $data = [ 
+                        'msg' => "New password and Confirm Password did'nt matched Please try again!",
+                        'status' => 404,
+                        'success' =>False,
+
+                ];
+            return response()->json(compact('user','data') ,404);
+        }
+         $data = [ 
+                        'msg' => "Entered Password is incorrect Please try again with correct password",
+                        'status' => 404,
+                        'success' => False,
+
+                ];
+
+        return response()->json(compact('user','data') ,404);
+        }
 }
