@@ -46,6 +46,8 @@ Route::get('privacyPolicy', 'privacyPolicyController@showPrivate');
  * 25/02/20
  */
 Route::group(['middleware' => ['jwt.verify']], function () {
+
+	Route::post('updateUserPassword','UserController@updateUserPassword');
     Route::get('subscribedCourses', 'SubscribedCoursesController@showDatas');
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::get('closed', 'DataController@closed');
