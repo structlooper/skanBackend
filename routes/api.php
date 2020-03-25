@@ -39,6 +39,9 @@ Route::get('termsAndCondition', 'TermsAndConditionController@showTerms');
 
 Route::get('privacyPolicy', 'privacyPolicyController@showPrivate');
 
+Route::get('videoTutorials', 'VideoTutorialsController@viewVideoTutorials');
+
+Route::get('mcqsQuestion', 'McqQuestionsController@viewMcqsQuestion');
 
 /**
  * These are Jwt verified urls 

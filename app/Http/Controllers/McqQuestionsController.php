@@ -56,7 +56,7 @@ class McqQuestionsController extends Controller
         $newData = McqsCategoryQuestionData::all();
         return redirect('mcqsQuestion')->with('newData',$newData)->with('status','Details Updated successfully!!');
     }
-    function deleteMcqsCategory($id)
+    public function deleteMcqsCategory($id)
     {
         $delData = McqsCategoryQuestionData::find($id);
         $delData->delete();
@@ -64,7 +64,7 @@ class McqQuestionsController extends Controller
 
     }
 
-    function createQuiz($id)
+    public function createQuiz($id)
     {
         $datas = DB::table('quiz_questions')->select('quiz_questions.id','quiz_questions.question' ,'quiz_questions.option1','quiz_questions.option2' , 'quiz_questions.option3', 'quiz_questions.category' , 'quiz_questions.option4','quiz_questions.answer','quiz_questions.desc', 'mcqs_category_question_data.questionName' , 'mcqs_category_question_data.timeDuration')->join('mcqs_category_question_data','quiz_questions.category', '=','mcqs_category_question_data.id')->get();
         $categoryDataID = McqsCategoryQuestionData::find($id);
@@ -72,7 +72,7 @@ class McqQuestionsController extends Controller
 
         return view('admin.McqQuestions.createQuizPage')->with('datas',$datas)->with('categoryData',$categoryDataID);
     }
-    function addMcqsQuizQuestion(request $request)
+    public function addMcqsQuizQuestion(request $request)
     {
         $rules = [
             'category' => 'required|max:100',
@@ -102,14 +102,14 @@ class McqQuestionsController extends Controller
         return redirect()->back()->with('status','Question saved successfully!!');
     }
 
-    function updateMcqsQuizQuestion($id)
+    public function updateMcqsQuizQuestion($id)
     {   
         $products = session('categoryDataID');
         $it =  $products->id;
         $updateQuiz = quizQuestion::find($id);
         return view('admin.McqQuestions.updateQuizPage')->with('updateQuiz',$updateQuiz)->with('id',$it);
     }
-    function updatationQuizQuestion(request $request ,$id)
+    public function updatationQuizQuestion(request $request ,$id)
     {
         // return $id;
         $updationData = quizQuestion::find($id);
@@ -124,11 +124,31 @@ class McqQuestionsController extends Controller
         return redirect()->back()->with('status','Question Updated successfully!!');
 
     }
-    function deleteMcqsQuizQuestion($id)
+    public function deleteMcqsQuizQuestion($id)
     {
         $delData = quizQuestion::find($id);
         $delData->delete();
         return redirect()->back()->with('error','Question Deleted successfully!!');
 
     }
+    public function viewMcqsQuestion(request $request)
+    {
+        $inputCategory = $request->input('category');
+        $categorys = DB::table('category_datas')->select('category_datas.category')->where('category_datas.category',$inputCategory)->get();
+        if (is_null($inputCategory)) {
+            return response()->json(['msg' => 'Please enter category']);
+        }
+        else{
+            
+        $data = DB::table('quiz_questions')
+        ->select('quiz_questions.id','quiz_questions.question','quiz_questions.option1','quiz_questions.option2','quiz_questions.option3','quiz_questions.option4','quiz_questions.answer','quiz_questions.desc','quiz_questions.category','mcqs_category_question_data.category','category_datas.category')->join('mcqs_category_question_data','mcqs_category_question_data.id','=','quiz_questions.category')
+        ->join('category_datas','category_datas.id','=','mcqs_category_question_data.category')->where('category_datas.category',$inputCategory)
+        ->paginate(10);
+
+        return response()->json($data);
+        }
+
+
+    }
+
 }
