@@ -12,7 +12,7 @@ class StudyMaterialController extends Controller
 {
     public function showStudyMaterial()
     {
-        $datas = DB::table('study_material_data')->select('study_material_data.id','study_material_data.title','study_material_data.source','study_material_data.image', 'category_datas.category' , )->join('category_datas','study_material_data.category', '=','category_datas.id')->get();
+        $datas = DB::table('study_material_data')->select('study_material_data.id','study_material_data.title','study_material_data.source','study_material_data.image', 'category_datas.category')->join('category_datas','study_material_data.category','=','category_datas.id')->get();
         return view('admin.StudyMaterial.ShowStudyMaterial')->with('datas',$datas);
     }
 

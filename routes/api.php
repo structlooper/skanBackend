@@ -43,6 +43,7 @@ Route::get('videoTutorials', 'VideoTutorialsController@viewVideoTutorials');
 
 Route::get('mcqsQuestion', 'McqQuestionsController@viewMcqsQuestion');
 
+Route::get('latestUpdates', 'LatestUpdatesController@viewApiUpdates');
 /**
  * These are Jwt verified urls 
  * Created by Structlooper
