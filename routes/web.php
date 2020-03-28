@@ -154,12 +154,26 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::delete('deleteUpdates/{id}', 'LatestUpdatesController@deleteUpdates');
 
     /**
-     *DOM of Latest Update
+     *DOM of Center Management
      * by Structlooper
      */
     Route::get('centerManagement' , 'CenterController@view')->name('centerManagement');
     Route::post('insertCenter' , 'CenterController@insertCenter')->name('insertCenter');
     Route::get('spiCenter/{id}' ,'CenterController@spiCenter');
     Route::Delete('centerDelete/{id}' , 'CenterController@centerDelete');
+
+
+     /**
+     *DOM of batch Management
+     * by Structlooper
+     */
+    Route::get('batchManagement' , 'BatchController@view')->name('batchManagement');
+    Route::post('insertBatch' , 'BatchController@insertbatch')->name('insertBatch');
+    Route::get('updateBatch/{id}', 'BatchController@updateBatch');
+    Route::post('updationBatch/{id}' , 'BatchController@updationBatch');
+    Route::get('spiBatch/{id}' ,'BatchController@spibatch');
+    Route::Delete('batchDelete/{id}' , 'BatchController@batchDelete');
+
+
 
 });
