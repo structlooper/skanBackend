@@ -36,6 +36,7 @@
               </li>
               
               <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
+              <li><a class="nav-link" href="{{route('centerManagement')}}">Center Management</a></li>
               <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
               <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
             </ul>
@@ -63,6 +64,14 @@
                 data-feather="book-open"></i><span>Quiz</span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('mcqsQuestion') }}">Quiz Management</a></li>
+            </ul>
+          </li>
+
+           <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="layers"></i><span>Latest Update</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ route('latestUpdatesManagement') }}">View Updates</a></li>
             </ul>
           </li>
 
