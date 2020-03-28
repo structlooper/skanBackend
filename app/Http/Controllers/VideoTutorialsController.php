@@ -71,7 +71,7 @@ class VideoTutorialsController extends Controller
 
             $video =  $request->file('video');
             $filename = $video->getClientOriginalName();
-            $path = 'uploads/videoTutorial/';
+            $path = 'uploades/videoTutorial/';
             $video->move($path, $filename);
             $data->video = URL::asset($path). "/" . $filename;
             $data->link = null;
