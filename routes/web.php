@@ -152,4 +152,14 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('editUpdates/{id}', 'LatestUpdatesController@editUpdates');
     Route::post('updationUpdates/{id}', 'LatestUpdatesController@updationUpdates');
     Route::delete('deleteUpdates/{id}', 'LatestUpdatesController@deleteUpdates');
+
+    /**
+     *DOM of Latest Update
+     * by Structlooper
+     */
+    Route::get('centerManagement' , 'CenterController@view')->name('centerManagement');
+    Route::post('insertCenter' , 'CenterController@insertCenter')->name('insertCenter');
+    Route::get('spiCenter/{id}' ,'CenterController@spiCenter');
+    Route::Delete('centerDelete/{id}' , 'CenterController@centerDelete');
+
 });

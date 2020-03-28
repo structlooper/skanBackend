@@ -36,6 +36,7 @@
               </li>
               
               <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
+              <li><a class="nav-link" href="{{route('centerManagement')}}">Center Management</a></li>
               <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
               <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
             </ul>
