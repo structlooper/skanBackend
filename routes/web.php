@@ -162,6 +162,16 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('spiCenter/{id}' ,'CenterController@spiCenter');
     Route::Delete('centerDelete/{id}' , 'CenterController@centerDelete');
 
+    /**
+     *DOM of batch Management
+     * by Structlooper
+     */
+    Route::get('batchManagement' , 'BatchController@view')->name('batchManagement');
+    Route::get('updateBatch/{id}' , 'BatchController@updateBatch')->name('updateBatch');
+    Route::post('updationBatch/{id}' , 'BatchController@updationBatch');
+    Route::post('insertBatch' , 'BatchController@insertBatch')->name('insertBatch');
+    Route::get('spiBatch/{id}' ,'BatchController@spiBatch');
+    Route::Delete('batchDelete/{id}' , 'BatchController@batchDelete');
 
 });
 

@@ -3,7 +3,8 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="adminDashboard"> <img alt="image" src={{ url("public/assets/img/logo.png") }} class="header-logo" /> <span
+        <a href="adminDashboard"> 
+          <img alt="image" src='{{ url("public/assets/img/logo.png") }}' class="header-logo"> <span
             class="logo-name">Skan  </span>
         </a>
       </div>
@@ -36,7 +37,7 @@
               </li>
               
               <li><a class="nav-link" href="{{route('category')}}">Category</a></li>
-              <li><a class="nav-link" href="{{route('centerManagement')}}">Center Management</a></li>
+              <li><a class="nav-link" href="{{route('centerManagement')}}">Centers</a></li>
               <li><a class="nav-link" href="{{route('termsAndCondition')}}">Terms And Condition</a></li>
               <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
             </ul>
@@ -46,7 +47,7 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="book-open"></i><span>Batch</span></a>
             <ul class="dropdown-menu">
-              {{-- <li><a href="{{ route('batchManagement') }}">Batch Management</a></li> --}}
+              <li><a href="{{ route('batchManagement') }}">Batch Management</a></li>
             </ul>
           </li>
 
