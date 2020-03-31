@@ -154,7 +154,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::delete('deleteUpdates/{id}', 'LatestUpdatesController@deleteUpdates');
 
     /**
-     *DOM of Latest Update
+     *DOM of Center Management
      * by Structlooper
      */
     Route::get('centerManagement' , 'CenterController@view')->name('centerManagement');
@@ -162,4 +162,6 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('spiCenter/{id}' ,'CenterController@spiCenter');
     Route::Delete('centerDelete/{id}' , 'CenterController@centerDelete');
 
+
 });
+

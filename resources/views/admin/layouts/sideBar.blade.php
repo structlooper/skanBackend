@@ -41,6 +41,15 @@
               <li><a class="nav-link" href="{{route('privacyPolicy')}}">Privacy Policy</a></li>
             </ul>
           </li>
+
+           <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="book-open"></i><span>Batch</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ route('batchManagement') }}">Batch Management</a></li>
+            </ul>
+          </li>
+
           <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="book"></i><span>Study Material</span></a>
@@ -66,7 +75,7 @@
               <li><a href="{{ route('mcqsQuestion') }}">Quiz Management</a></li>
             </ul>
           </li>
-
+ 
            <li class="dropdown">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="layers"></i><span>Latest Update</span></a>
