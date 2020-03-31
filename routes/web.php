@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -24,14 +24,14 @@ Route::get('/home', 'HomeController@index')->name('home');
  * created by structlooper
  * 25/02/2020
  */
-Route::group(['middleware' => ['auth', 'is_admin']], function () {
+    Route::group(['middleware' => ['auth', 'is_admin']], function () {
 
-    route::get('adminDashboard', 'AdminController@index')->name('adminDashboard');
-    route::get('adminProifile', 'AdminController@adminProifile')->name('adminProifile');
-    route::get('timeline', 'AdminController@timeline')->name('timeline');
-    route::get('changePassword', 'AdminController@resetPass')->name('changePassword');
-    route::put('changing', 'AdminController@changing')->name('changing');
-    route::get('category', "CategoryController@category")->name('category');
+    Route::get('adminDashboard', 'AdminController@index')->name('adminDashboard');
+    Route::get('adminProifile', 'AdminController@adminProifile')->name('adminProifile');
+    Route::get('timeline', 'AdminController@timeline')->name('timeline');
+    Route::get('changePassword', 'AdminController@resetPass')->name('changePassword');
+    Route::put('changing', 'AdminController@changing')->name('changing');
+    Route::get('category', "CategoryController@category")->name('category');
 
     /**
      * SubAdmin Routes
@@ -53,16 +53,16 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
      * by structlooper
      * 27/02/2020
      */
-    route::post('addingValues', "CategoryController@addingValues")->name('addingValues');
+    Route::post('addingValues', "CategoryController@addingValues")->name('addingValues');
 
     /**
      * specific entery delting after storing
      * by structlooper
-     * 
+     *
      */
-    route::get('delete/{id}', 'CategoryController@deleting');
-    route::get('data/{id}', 'CategoryController@showData');
-    route::post('dataUpdate/{id}', 'CategoryController@updateValues');
+    Route::get('delete/{id}', 'CategoryController@deleting');
+    Route::get('data/{id}', 'CategoryController@showData');
+    Route::post('dataUpdate/{id}', 'CategoryController@updateValues');
 
     /**
      * DOM for Bannner
@@ -106,10 +106,10 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('updateStudyMaterial/{id}', 'StudyMaterialController@updateStudyMaterial');
     Route::put('updatationStudyMaterial/{id}', 'StudyMaterialController@updatationStudyMaterial');
     Route::delete('deleteStudyMaterial/{id}', 'StudyMaterialController@deleteStudyMaterial');
-    
-   
-   
-   
+
+
+
+
     /**
      * MCQs Quiestion routes
      * by structlooper
@@ -123,7 +123,7 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     /**
      * Create Quiz Routes
      */
-    Route::get('createQuiz/{id}', 'McqQuestionsController@createQuiz')->name('createQuiz'); 
+    Route::get('createQuiz/{id}', 'McqQuestionsController@createQuiz')->name('createQuiz');
     Route::post('addMcqsQuizQuestion' , 'McqQuestionsController@addMcqsQuizQuestion')->name('addMcqsQuizQuestion');
     Route::get('updateMcqsQuizQuestion/{id}', 'McqQuestionsController@updateMcqsQuizQuestion');
     Route::put('updatationQuizQuestion/{id}', 'McqQuestionsController@updatationQuizQuestion');

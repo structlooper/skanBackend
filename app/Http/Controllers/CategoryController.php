@@ -52,6 +52,23 @@ class CategoryController extends Controller
         $data->category = $request->input('category') ?? $data->category;
         $data->update();
         return redirect()->back()->with('status','data updated successfully');
-        
+
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * Use to get category list for front end
+     */
+    public function categoryAPI()
+    {
+        $dataDb = categoryData::all();
+
+        $data = [
+            'status' => true,
+            'data' => $dataDb
+        ];
+
+        return response()->json($data);
     }
 }

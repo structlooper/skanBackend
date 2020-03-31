@@ -18,9 +18,10 @@ class McqQuestionsController extends Controller
         $datas = DB::table('mcqs_category_question_data')->select('mcqs_category_question_data.id','mcqs_category_question_data.questionName' ,'mcqs_category_question_data.timeDuration','category_datas.category'    )->join('category_datas','mcqs_category_question_data.category', '=','category_datas.id')->get();
         return view('admin.McqQuestions.ShowAllMcqs')->with('datas',$datas)->with('categoryData',$categoryData);
     }
+
     public function addMcqsCategory(request $request)
     {
-        
+
         $rules = [
             'Qcategory' => 'required|max:100',
             'Qname' => 'required|max:250',
@@ -37,17 +38,17 @@ class McqQuestionsController extends Controller
         $newData->save();
         return redirect('mcqsQuestion')->with('newData',$newData)->with('status' ,'Mcq Category Saved successfully!!');
     }
-    
+
     public function updateMcqsCategory(request $request,$id)
     {
         $categoryData = categoryData::all();
         $updateData = McqsCategoryQuestionData::find($id);
         return view('admin.McqQuestions.updateMcqsCategory')->with('updateData',$updateData)->with('categoryData',$categoryData);
-        
+
     }
     public function updateMcqsCategoryupdation(request $request,$id)
     {
-        
+
         $updateData = McqsCategoryQuestionData::find($id);
         $updateData->category = $request->input('Qcategory') ?? $updateData->category;
         $updateData->questionName = $request->input('Qname');
@@ -103,7 +104,7 @@ class McqQuestionsController extends Controller
     }
 
     public function updateMcqsQuizQuestion($id)
-    {   
+    {
         $products = session('categoryDataID');
         $it =  $products->id;
         $updateQuiz = quizQuestion::find($id);
@@ -131,15 +132,27 @@ class McqQuestionsController extends Controller
         return redirect()->back()->with('error','Question Deleted successfully!!');
 
     }
+
+
+    public function getMCQCategory(request $request){
+        $inputCategory = $request->input('category');
+        if (is_null($inputCategory)) {
+            return response()->json(['msg' => 'Please enter category']);
+        }
+        else {
+            $datas = DB::table('mcqs_category_question_data')->select('mcqs_category_question_data.id' , 'mcqs_category_question_data.created_at', 'mcqs_category_question_data.questionName', 'mcqs_category_question_data.timeDuration', 'category_datas.category')->join('category_datas', 'mcqs_category_question_data.category', '=', 'category_datas.id')->where('mcqs_category_question_data.category', $inputCategory)->get();
+            return response()->json($datas);
+        }
+    }
+
     public function viewMcqsQuestion(request $request)
     {
         $inputCategory = $request->input('category');
-        $categorys = DB::table('category_datas')->select('category_datas.category')->where('category_datas.category',$inputCategory)->get();
         if (is_null($inputCategory)) {
             return response()->json(['msg' => 'Please enter category']);
         }
         else{
-            
+
         $data = DB::table('quiz_questions')
         ->select('quiz_questions.id','quiz_questions.question','quiz_questions.option1','quiz_questions.option2','quiz_questions.option3','quiz_questions.option4','quiz_questions.answer','quiz_questions.desc','quiz_questions.category','mcqs_category_question_data.category','category_datas.category')->join('mcqs_category_question_data','mcqs_category_question_data.id','=','quiz_questions.category')
         ->join('category_datas','category_datas.id','=','mcqs_category_question_data.category')->where('category_datas.category',$inputCategory)

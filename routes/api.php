@@ -39,13 +39,20 @@ Route::get('termsAndCondition', 'TermsAndConditionController@showTerms');
 
 Route::get('privacyPolicy', 'privacyPolicyController@showPrivate');
 
+Route::get('category' , 'CategoryController@categoryAPI');
+
+
+
 Route::get('videoTutorials', 'VideoTutorialsController@viewVideoTutorials');
+
+Route::get('msqTests' , 'McqQuestionsController@getMCQCategory');
 
 Route::get('mcqsQuestion', 'McqQuestionsController@viewMcqsQuestion');
 
+
 Route::get('latestUpdates', 'LatestUpdatesController@viewApiUpdates');
 /**
- * These are Jwt verified urls 
+ * These are Jwt verified urls
  * Created by Structlooper
  * 25/02/20
  */

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
- 
+
   <title>@yield('adminTitle')</title>
- 
+
   {{-- including page specific css --}}
   @yield('adminStyleCss')
- 
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href={{ url("public/assets/css/app.min.css") }}>
   <!-- Template CSS -->
@@ -26,18 +26,18 @@
 
     <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2019 <div class="bullet"></div> Design By <a href="#">Redstar</a>
+          Copyright &copy; 2020 <div class="bullet"></div> Design By <a href="https://xcrino.com/">Xcrino Business Solutions</a>
         </div>
         <div class="footer-right">
         </div>
       </footer>
     </div>
   </div>
-  
+
   <!-- General JS Scripts -->
-  
-  
-  
+
+
+
   <script src={{ url("public/assets/js/app.min.js") }}> </script>
   <!-- JS Libraies -->
   <script src={{ url("public/assets/bundles/apexcharts/apexcharts.min.js") }}></script>
