@@ -46,7 +46,7 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="book-open"></i><span>Batch</span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ route('batchManagement') }}">Batch Management</a></li>
+              {{-- <li><a href="{{ route('batchManagement') }}">Batch Management</a></li> --}}
             </ul>
           </li>
 
