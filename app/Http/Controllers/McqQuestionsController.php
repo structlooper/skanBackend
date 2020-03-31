@@ -67,7 +67,11 @@ class McqQuestionsController extends Controller
 
     public function createQuiz($id)
     {
-        $datas = DB::table('quiz_questions')->select('quiz_questions.id','quiz_questions.question' ,'quiz_questions.option1','quiz_questions.option2' , 'quiz_questions.option3', 'quiz_questions.category' , 'quiz_questions.option4','quiz_questions.answer','quiz_questions.desc', 'mcqs_category_question_data.questionName' , 'mcqs_category_question_data.timeDuration')->join('mcqs_category_question_data','quiz_questions.category', '=','mcqs_category_question_data.id')->get();
+        $datas = DB::table('quiz_questions')
+        ->select('quiz_questions.id','quiz_questions.question' ,'quiz_questions.option1','quiz_questions.option2' , 'quiz_questions.option3', 'mcqs_category_question_data.category' , 'quiz_questions.option4','quiz_questions.answer','quiz_questions.desc', 'mcqs_category_question_data.questionName' , 'mcqs_category_question_data.timeDuration')
+        ->join('mcqs_category_question_data','quiz_questions.category', '=','mcqs_category_question_data.id')
+        ->where('quiz_questions.category', '=',$id)
+        ->get();
         $categoryDataID = McqsCategoryQuestionData::find($id);
         session(['categoryDataID' => $categoryDataID]);
 
